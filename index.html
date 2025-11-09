@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moral Foundations Questionnaire</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #app {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .instructions p {
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        th:last-child {
+            text-align: center;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: middle;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .question-cell {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .rating-cell {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .rating-buttons {
+            display: inline-flex;
+            gap: 5px;
+        }
+
+        .rating-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rating-btn:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .rating-btn.selected {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .results-container {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .result-score {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .score-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .score-bar-bg {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .rating-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="card">
+            <!-- Part 1 Page -->
+            <div v-if="currentPage === 1">
+                <h1>Part 1: Moral Relevance</h1>
+
+                <div class="instructions">
+                    <p style="font-weight: 500;">
+                        When you decide whether something is right or wrong, to what extent are the following considerations relevant to your thinking?
+                    </p>
+                    <p>Please rate each statement using this scale:</p>
+                    <ul>
+                        <li><strong>0</strong> = not at all relevant (This consideration has nothing to do with my judgments of right and wrong)</li>
+                        <li><strong>1</strong> = not very relevant</li>
+                        <li><strong>2</strong> = slightly relevant</li>
+                        <li><strong>3</strong> = somewhat relevant</li>
+                        <li><strong>4</strong> = very relevant</li>
+                        <li><strong>5</strong> = extremely relevant (This is one of the most important factors when I judge right and wrong)</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 60%;">Question</th>
+                            <th>Rating (0-5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(q, index) in part1Questions" :key="'p1-' + index">
+                            <td class="question-cell">{{ q.question }}</td>
+                            <td class="rating-cell">
+                                <div class="rating-buttons">
+                                    <button
+                                        v-for="rating in [0, 1, 2, 3, 4, 5]"
+                                        :key="rating"
+                                        class="rating-btn"
+                                        :class="{ selected: answers[q.id] === rating }"
+                                        @click="setAnswer(q.id, rating)"
+                                    >
+                                        {{ rating }}
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="button-container">
+                    <button class="btn-primary" @click="goToPart2" :disabled="!isPart1Complete">
+                        Continue to Part 2 →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Part 2 Page -->
+            <div v-if="currentPage === 2">
+                <h1>Part 2: Agreement/Disagreement</h1>
+
+                <div class="instructions">
+                    <p style="font-weight: 500;">
+                        Please read the following sentences and indicate your agreement or disagreement
+                    </p>
+                    <p>Please rate each statement using this scale:</p>
+                    <ul>
+                        <li><strong>0</strong> = Strongly Disagree</li>
+                        <li><strong>1</strong> = Moderately Disagree</li>
+                        <li><strong>2</strong> = Slightly Disagree</li>
+                        <li><strong>3</strong> = Slightly Agree</li>
+                        <li><strong>4</strong> = Moderately Agree</li>
+                        <li><strong>5</strong> = Strongly Agree</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 60%;">Statement</th>
+                            <th>Rating (0-5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(q, index) in part2Questions" :key="'p2-' + index">
+                            <td class="question-cell">{{ q.question }}</td>
+                            <td class="rating-cell">
+                                <div class="rating-buttons">
+                                    <button
+                                        v-for="rating in [0, 1, 2, 3, 4, 5]"
+                                        :key="rating"
+                                        class="rating-btn"
+                                        :class="{ selected: answers[q.id] === rating }"
+                                        @click="setAnswer(q.id, rating)"
+                                    >
+                                        {{ rating }}
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="button-container">
+                    <button class="btn-secondary" @click="goToPart1">
+                        ← Back to Part 1
+                    </button>
+                    <button class="btn-primary" @click="viewResults" :disabled="!isPart2Complete">
+                        View Results
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Page -->
+            <div v-if="currentPage === 3" class="results-container">
+                <h1>Your Moral Foundations Profile</h1>
+
+                <div class="results-grid">
+                    <div v-for="(score, foundation) in foundationScores" :key="foundation" class="result-card">
+                        <div class="result-title">{{ foundation }}</div>
+                        <div class="result-score">
+                            <span class="score-label">Total Score</span>
+                            <span class="score-value">{{ score.total }}</span>
+                        </div>
+                        <div class="score-bar-bg">
+                            <div class="score-bar-fill" :style="{ width: (score.total / (score.count * 5) * 100) + '%' }"></div>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 13px; color: #999;">
+                            Based on {{ score.count }} questions (max: {{ score.count * 5 }})
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn-secondary" @click="goToPart2">
+                        ← Back to Part 2
+                    </button>
+                    <button class="btn-primary" @click="restart">
+                        Start Over
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentPage: 1,
+                    answers: {},
+                    questions: [
+                        { id: 'p1q1', question: "Whether or not someone suffered emotionally", part: 1, moral: "Harm-Care" },
+                        { id: 'p1q2', question: "Whether or not some people were treated differently than others", part: 1, moral: "Fairness-Reciprocity" },
+                        { id: 'p1q3', question: "Whether or not someone's action showed love for his or her country", part: 1, moral: "Loyalty" },
+                        { id: 'p1q4', question: "Whether or not someone showed a lack of respect for authority", part: 1, moral: "Authority" },
+                        { id: 'p1q5', question: "Whether or not someone violated standards of purity and decency", part: 1, moral: "Purity-Sanctity" },
+                        { id: 'p1q6', question: "Whether or not someone was good at math", part: 1, moral: "Control" },
+                        { id: 'p1q7', question: "Whether or not someone cared for someone weak or vulnerable", part: 1, moral: "Harm-Care" },
+                        { id: 'p1q8', question: "Whether or not someone acted unfairly", part: 1, moral: "Fairness-Reciprocity" },
+                        { id: 'p1q9', question: "Whether or not someone did something to betray his or her group", part: 1, moral: "Loyalty" },
+                        { id: 'p1q10', question: "Whether or not someone conformed to the traditions of society", part: 1, moral: "Authority" },
+                        { id: 'p1q11', question: "Whether or not someone did something disgusting", part: 1, moral: "Purity-Sanctity" },
+                        { id: 'p1q12', question: "Whether or not someone was cruel", part: 1, moral: "Harm-Care" },
+                        { id: 'p1q13', question: "Whether or not someone was denied his or her rights", part: 1, moral: "Fairness-Reciprocity" },
+                        { id: 'p1q14', question: "Whether or not someone showed a lack of loyalty", part: 1, moral: "Loyalty" },
+                        { id: 'p1q15', question: "Whether or not an action caused chaos or disorder", part: 1, moral: "Authority" },
+                        { id: 'p1q16', question: "Whether or not someone acted in a way that God would approve of", part: 1, moral: "Purity-Sanctity" },
+                        { id: 'p2q1', question: "Compassion for those who are suffering is the most crucial virtue.", part: 2, moral: "Harm-Care" },
+                        { id: 'p2q2', question: "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.", part: 2, moral: "Fairness-Reciprocity" },
+                        { id: 'p2q3', question: "I am proud of my country's history.", part: 2, moral: "Loyalty" },
+                        { id: 'p2q4', question: "Respect for authority is something all children need to learn.", part: 2, moral: "Authority" },
+                        { id: 'p2q5', question: "People should not do things that are disgusting, even if no one is harmed.", part: 2, moral: "Purity-Sanctity" },
+                        { id: 'p2q6', question: "It is better to do good than to do bad.", part: 2, moral: "Control" },
+                        { id: 'p2q7', question: "One of the worst things a person could do is hurt a defenseless animal.", part: 2, moral: "Harm-Care" },
+                        { id: 'p2q8', question: "Justice is the most important requirement for a society.", part: 2, moral: "Fairness-Reciprocity" },
+                        { id: 'p2q9', question: "People should be loyal to their family members, even when they have done something wrong.", part: 2, moral: "Loyalty" },
+                        { id: 'p2q10', question: "Men and women each have different roles to play in society.", part: 2, moral: "Authority" },
+                        { id: 'p2q11', question: "I would call some acts wrong on the grounds that they are unnatural.", part: 2, moral: "Purity-Sanctity" },
+                        { id: 'p2q12', question: "It can never be right to kill a human being.", part: 2, moral: "Harm-Care" },
+                        { id: 'p2q13', question: "I think it's morally wrong that rich children inherit a lot of money while poor children inherit nothing.", part: 2, moral: "Fairness-Reciprocity" },
+                        { id: 'p2q14', question: "It is more important to be a team player than to express oneself.", part: 2, moral: "Loyalty" },
+                        { id: 'p2q15', question: "If I were a soldier and disagreed with my commanding officer's orders, I would obey anyway because that is my duty.", part: 2, moral: "Authority" },
+                        { id: 'p2q16', question: "Chastity is an important and valuable virtue.", part: 2, moral: "Purity-Sanctity" }
+                    ]
+                };
+            },
+            computed: {
+                part1Questions() {
+                    return this.questions.filter(q => q.part === 1);
+                },
+                part2Questions() {
+                    return this.questions.filter(q => q.part === 2);
+                },
+                isPart1Complete() {
+                    return this.part1Questions.every(q => this.answers[q.id] !== undefined);
+                },
+                isPart2Complete() {
+                    return this.part2Questions.every(q => this.answers[q.id] !== undefined);
+                },
+                foundationScores() {
+                    const scores = {};
+
+                    this.questions.forEach(q => {
+                        if (this.answers[q.id] !== undefined && q.moral !== 'Control') {
+                            if (!scores[q.moral]) {
+                                scores[q.moral] = {
+                                    total: 0,
+                                    count: 0
+                                };
+                            }
+                            scores[q.moral].total += this.answers[q.id];
+                            scores[q.moral].count += 1;
+                        }
+                    });
+
+                    return scores;
+                }
+            },
+            methods: {
+                setAnswer(questionId, rating) {
+                    this.answers[questionId] = rating;
+                },
+                goToPart1() {
+                    this.currentPage = 1;
+                },
+                goToPart2() {
+                    this.currentPage = 2;
+                },
+                viewResults() {
+                    this.currentPage = 3;
+                },
+                restart() {
+                    this.currentPage = 1;
+                    this.answers = {};
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

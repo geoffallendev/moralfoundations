@@ -1,0 +1,45 @@
+Question,Part,Moral,Outputs,,,,,
+Whether or not someone suffered emotionally ,1,Harm-Care,A value from 0 - 5,,,,,
+Whether or not some people were treated differently than others,1,Fairness-Reciprocity,A value from 0 - 5,,,,,
+Whether or not someone’s action showed love for his or her country,1,Loyalty,A value from 0 - 5,,,,,
+"Whether or not someone showed a lack of respect for authority 
+",1,Authority,A value from 0 - 5,,,,,
+"Whether or not someone violated standards of purity and decency
+",1,Purity-Sancity,A value from 0 - 5,,,,,
+"Whether or not someone was good at math
+",1,Control,A value from 0 - 5,,,,,
+"Whether or not someone cared for someone weak or vulnerable
+",1,Harm-Care,A value from 0 - 5,,,,,
+"Whether or not someone acted unfairly
+",1,Fairness-Reciprocity,A value from 0 - 5,,,,,
+"Whether or not someone did something to betray his or her group
+",1,Loyalty,A value from 0 - 5,,,,,
+"Whether or not someone conformed to the traditions of society 
+",1,Authority,A value from 0 - 5,,,,,
+"Whether or not someone did something disgusting
+",1,Purity-Sancity,A value from 0 - 5,,,,,
+"Whether or not someone was cruel
+",1,Harm-Care,A value from 0 - 5,,,,,
+"Whether or not someone was denied his or her rights
+",1,Fairness-Reciprocity,A value from 0 - 5,,,,,
+"Whether or not someone showed a lack of loyalty
+",1,Loyalty,A value from 0 - 5,,,,,
+"Whether or not an action caused chaos or disorder
+",1,Authority,A value from 0 - 5,,,,,
+Whether or not someone acted in a way that God would approve of	,1,Purity-Sancity,A value from 0 - 5,,,,,
+Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,A value from 0 - 5,,,,,
+"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,A value from 0 - 5,,,,,
+I am proud of my country’s history.,2,Loyalty,A value from 0 - 5,,,,,
+Respect for authority is something all children need to learn.,2,Authority,A value from 0 - 5,,,,,
+"People should not do things that are disgusting, even if no one is harmed. ",2,Purity-Sancity,A value from 0 - 5,,,,,
+It is better to do good than to do bad.,2,Control,A value from 0 - 5,,,,,
+One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,A value from 0 - 5,,,,,
+Justice is the most important requirement for a society.,2,Fairness-Reciprocity,A value from 0 - 5,,,,,
+"People should be loyal to their family members, even when they have done something wrong.  ",2,Loyalty,A value from 0 - 5,,,,,
+Men and women each have different roles to play in society.,2,Authority,A value from 0 - 5,,,,,
+I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sancity,A value from 0 - 5,,,,,
+It can never be right to kill a human being.,2,Harm-Care,A value from 0 - 5,,,,,
+I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,A value from 0 - 5,,,,,
+It is more important to be a team player than to express oneself.,2,Loyalty,A value from 0 - 5,,,,,
+"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,A value from 0 - 5,,,,,
+Chastity is an important and valuable virtue.,2,Purity-Sancity,A value from 0 - 5,,,,,
