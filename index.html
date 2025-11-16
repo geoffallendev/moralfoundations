@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moral Foundations Questionnaire</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -233,6 +234,63 @@
             transition: width 0.5s ease;
         }
 
+        .chart-container {
+            position: relative;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        table.report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .report-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .report-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        .report-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .report-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .report-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .score-cell {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
         @media (max-width: 768px) {
             .card {
                 padding: 20px;
@@ -373,26 +431,45 @@
             <!-- Results Page -->
             <div v-if="currentPage === 3" class="results-container">
                 <h1>Your Moral Foundations Profile</h1>
+                <p style="color: #666; margin-bottom: 30px;">Generated on {{ new Date().toLocaleDateString() }}</p>
 
-                <div class="results-grid">
-                    <div v-for="(score, foundation) in foundationScores" :key="foundation" class="result-card">
-                        <div class="result-title">{{ foundation }}</div>
-                        <div class="result-score">
-                            <span class="score-label">Total Score</span>
-                            <span class="score-value">{{ score.total }}</span>
-                        </div>
-                        <div class="score-bar-bg">
-                            <div class="score-bar-fill" :style="{ width: (score.total / (score.count * 5) * 100) + '%' }"></div>
-                        </div>
-                        <div style="margin-top: 10px; font-size: 13px; color: #999;">
-                            Based on {{ score.count }} questions (max: {{ score.count * 5 }})
-                        </div>
+                <!-- Visual Analysis Chart -->
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px; color: #495057;">Sum of Scores by Moral Foundation</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="foundationChart"></canvas>
                     </div>
+                </div>
+
+                <!-- Detailed Scores Table -->
+                <div style="margin-top: 40px;">
+                    <h2 style="font-size: 1.5em; margin-bottom: 20px; color: #667eea;">Detailed Scores by Moral Foundation</h2>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Moral Foundation</th>
+                                <th>Total Score</th>
+                                <th>Question Count</th>
+                                <th>Max Possible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(score, foundation) in foundationScores" :key="foundation">
+                                <td>{{ foundation }}</td>
+                                <td class="score-cell">{{ score.total }}</td>
+                                <td>{{ score.count }}</td>
+                                <td>{{ score.count * 5 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <div class="button-container">
                     <button class="btn-secondary" @click="goToPart2">
                         ← Back to Part 2
+                    </button>
+                    <button class="btn-primary" @click="downloadJSON">
+                        Download JSON Results
                     </button>
                     <button class="btn-primary" @click="restart">
                         Start Over
@@ -490,10 +567,105 @@
                 },
                 viewResults() {
                     this.currentPage = 3;
+                    // Wait for DOM to render, then create chart
+                    this.$nextTick(() => {
+                        this.renderChart();
+                    });
+                },
+                renderChart() {
+                    const ctx = document.getElementById('foundationChart');
+                    if (!ctx) return;
+
+                    // Prepare data for chart
+                    const foundations = Object.keys(this.foundationScores);
+                    const scores = foundations.map(f => this.foundationScores[f].total);
+
+                    const colors = [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(118, 75, 162, 0.8)',
+                        'rgba(237, 100, 166, 0.8)',
+                        'rgba(255, 154, 158, 0.8)',
+                        'rgba(250, 208, 196, 0.8)',
+                    ];
+
+                    const borderColors = [
+                        'rgba(102, 126, 234, 1)',
+                        'rgba(118, 75, 162, 1)',
+                        'rgba(237, 100, 166, 1)',
+                        'rgba(255, 154, 158, 1)',
+                        'rgba(250, 208, 196, 1)',
+                    ];
+
+                    // Create chart
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: foundations,
+                            datasets: [{
+                                label: 'Your Scores',
+                                data: scores,
+                                backgroundColor: colors,
+                                borderColor: borderColors,
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Sum of Scores'
+                                    }
+                                }
+                            }
+                        }
+                    });
                 },
                 restart() {
                     this.currentPage = 1;
                     this.answers = {};
+                },
+                downloadJSON() {
+                    // Create results in the same format as the LLM analyzer
+                    const results = [];
+                    const timestamp = new Date().toISOString();
+
+                    this.questions.forEach(q => {
+                        if (this.answers[q.id] !== undefined && q.moral !== 'Control') {
+                            results.push({
+                                llm: "User",
+                                question: q.question,
+                                part: q.part,
+                                moral_foundation: q.moral,
+                                response: `Rating: ${this.answers[q.id]}`,
+                                extracted_value: this.answers[q.id],
+                                timestamp: timestamp
+                            });
+                        }
+                    });
+
+                    // Create filename with timestamp
+                    const dateStr = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+                    const filename = `moral_foundations_results_${dateStr}.json`;
+
+                    // Download JSON file
+                    const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
                 }
             }
         }).mount('#app');
