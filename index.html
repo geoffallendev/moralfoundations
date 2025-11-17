@@ -21,8 +21,110 @@
         }
 
         #app {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: white;
+        }
+
+        .tab.active {
+            color: white;
+            border-bottom-color: white;
+        }
+
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .reports-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .report-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .report-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .report-item input[type="checkbox"] {
+            margin-right: 15px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .llm-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-top: 5px;
         }
 
         .card {
@@ -318,7 +420,22 @@
 </head>
 <body>
     <div id="app">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab" :class="{ active: mainTab === 'questionnaire' }" @click="switchMainTab('questionnaire')">
+                Take Questionnaire
+            </button>
+            <button class="tab" :class="{ active: mainTab === 'dashboard' }" @click="switchMainTab('dashboard')">
+                Dashboard
+            </button>
+            <button class="tab" :class="{ active: mainTab === 'compare' }" @click="switchMainTab('compare')">
+                Compare Results
+            </button>
+        </div>
+
         <div class="card">
+            <!-- Questionnaire Tab -->
+            <div v-show="mainTab === 'questionnaire'">
             <!-- Part 1 Page -->
             <div v-if="currentPage === 1">
                 <h1>Part 1: Moral Relevance</h1>
@@ -476,6 +593,106 @@
                     </button>
                 </div>
             </div>
+            </div>
+            <!-- End Questionnaire Tab -->
+
+            <!-- Dashboard Tab -->
+            <div v-show="mainTab === 'dashboard'">
+                <h1>Analysis Dashboard</h1>
+                <p style="color: #666; margin-bottom: 30px;">View and analyze all moral foundations reports</p>
+
+                <div v-if="allReports.length === 0" style="text-align: center; padding: 60px 20px; color: #666;">
+                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                    <h3>No Reports Found</h3>
+                    <p>Complete the questionnaire or run LLM analysis to generate reports.</p>
+                </div>
+
+                <div v-else>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Reports</h3>
+                            <div class="value">{{ allReports.length }}</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total LLMs Tested</h3>
+                            <div class="value">{{ uniqueLLMs.length }}</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Responses</h3>
+                            <div class="value">{{ totalResponses }}</div>
+                        </div>
+                    </div>
+
+                    <h2 style="font-size: 1.5em; margin-bottom: 20px; color: #667eea;">All Reports</h2>
+                    <div class="reports-list">
+                        <div v-for="(report, index) in allReports" :key="index" class="report-item">
+                            <div style="display: flex; justify-content: space-between; align-items: start;">
+                                <div style="flex: 1;">
+                                    <h3 style="color: #333; margin-bottom: 10px;">{{ report.filename }}</h3>
+                                    <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">
+                                        {{ new Date(report.date_generated).toLocaleString() }}
+                                    </div>
+                                    <div>
+                                        <span v-for="llm in report.llms" :key="llm" class="llm-tag">{{ llm }}</span>
+                                    </div>
+                                    <div style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                                        {{ report.valid_responses }}/{{ report.total_responses }} valid responses •
+                                        {{ report.question_count }} questions
+                                    </div>
+                                </div>
+                                <a :href="report.filepath.replace('.json', '.html')"
+                                   class="btn-primary" style="text-decoration: none; display: inline-block;">
+                                    View Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Dashboard Tab -->
+
+            <!-- Compare Tab -->
+            <div v-show="mainTab === 'compare'">
+                <h1>Compare Results</h1>
+                <p style="color: #666; margin-bottom: 30px;">Select reports to compare LLM performance</p>
+
+                <div v-if="allReports.length === 0" style="text-align: center; padding: 60px 20px; color: #666;">
+                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                    <h3>No Reports Found</h3>
+                    <p>Generate reports first to enable comparison.</p>
+                </div>
+
+                <div v-else>
+                    <h3 style="margin-bottom: 20px; color: #667eea;">Select Reports to Compare</h3>
+                    <div class="reports-list" style="margin-bottom: 30px;">
+                        <div v-for="(report, index) in allReports" :key="index" class="report-item">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" v-model="selectedReports" :value="index">
+                                <div style="flex: 1;">
+                                    <h3 style="color: #333; margin-bottom: 5px;">{{ report.filename }}</h3>
+                                    <div style="color: #666; font-size: 0.9em;">
+                                        {{ new Date(report.date_generated).toLocaleDateString() }} •
+                                        <span v-for="llm in report.llms" :key="llm">{{ llm }} </span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div v-if="selectedReports.length > 0">
+                        <div class="chart-container">
+                            <h3 style="margin-bottom: 20px; color: #495057;">Score Comparison by Moral Foundation</h3>
+                            <div class="chart-wrapper">
+                                <canvas id="comparisonChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else style="text-align: center; padding: 40px; color: #666;">
+                        Select at least one report to view comparison
+                    </div>
+                </div>
+            </div>
+            <!-- End Compare Tab -->
         </div>
     </div>
 
@@ -485,8 +702,12 @@
         createApp({
             data() {
                 return {
+                    mainTab: 'questionnaire',
                     currentPage: 1,
                     answers: {},
+                    allReports: [],
+                    selectedReports: [],
+                    comparisonChart: null,
                     questions: [
                         { id: 'p1q1', question: "Whether or not someone suffered emotionally", part: 1, moral: "Harm-Care" },
                         { id: 'p1q2', question: "Whether or not some people were treated differently than others", part: 1, moral: "Fairness-Reciprocity" },
@@ -535,6 +756,14 @@
                 },
                 isPart2Complete() {
                     return this.part2Questions.every(q => this.answers[q.id] !== undefined);
+                },
+                uniqueLLMs() {
+                    const llmsSet = new Set();
+                    this.allReports.forEach(r => r.llms.forEach(llm => llmsSet.add(llm)));
+                    return Array.from(llmsSet);
+                },
+                totalResponses() {
+                    return this.allReports.reduce((sum, r) => sum + r.total_responses, 0);
                 },
                 foundationScores() {
                     const scores = {};
@@ -666,7 +895,138 @@
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
+                },
+                switchMainTab(tab) {
+                    this.mainTab = tab;
+                    if (tab === 'dashboard' || tab === 'compare') {
+                        this.loadReports();
+                    }
+                },
+                async loadReports() {
+                    try {
+                        const response = await fetch('/results/index.json');
+                        if (response.ok) {
+                            this.allReports = await response.json();
+                            console.log('Loaded reports:', this.allReports.length);
+                        } else {
+                            console.log('Response not ok:', response.status);
+                            this.allReports = [];
+                        }
+                    } catch (error) {
+                        console.log('No reports found or error loading:', error);
+                        this.allReports = [];
+                    }
+                },
+                async renderComparison() {
+                    if (this.selectedReports.length === 0) return;
+
+                    // Destroy existing chart
+                    if (this.comparisonChart) {
+                        this.comparisonChart.destroy();
+                    }
+
+                    // Load data for selected reports
+                    const reportsData = await Promise.all(
+                        this.selectedReports.map(idx =>
+                            fetch(this.allReports[idx].filepath).then(r => r.json())
+                        )
+                    );
+
+                    const foundations = ['Harm-Care', 'Fairness-Reciprocity', 'Loyalty', 'Authority', 'Purity-Sanctity'];
+                    const colors = [
+                        'rgba(102, 126, 234, 0.8)',
+                        'rgba(118, 75, 162, 0.8)',
+                        'rgba(237, 100, 166, 0.8)',
+                        'rgba(255, 154, 158, 0.8)',
+                        'rgba(250, 208, 196, 0.8)',
+                        'rgba(52, 211, 153, 0.8)',
+                        'rgba(251, 191, 36, 0.8)',
+                        'rgba(239, 68, 68, 0.8)',
+                    ];
+
+                    const llmDataMap = new Map();
+                    let colorIdx = 0;
+
+                    this.selectedReports.forEach((reportIdx, idx) => {
+                        const data = reportsData[idx];
+                        const llmsInReport = [...new Set(data.map(r => r.llm))];
+
+                        llmsInReport.forEach(llm => {
+                            if (!llmDataMap.has(llm)) {
+                                llmDataMap.set(llm, {
+                                    label: llm,
+                                    data: [],
+                                    backgroundColor: colors[colorIdx % colors.length],
+                                    borderColor: colors[colorIdx % colors.length].replace('0.8', '1'),
+                                    borderWidth: 2
+                                });
+                                colorIdx++;
+                            }
+
+                            const dataset = llmDataMap.get(llm);
+                            if (dataset.data.length === 0) {
+                                foundations.forEach(foundation => {
+                                    const foundationData = data.filter(r =>
+                                        r.llm === llm &&
+                                        r.moral_foundation === foundation &&
+                                        r.extracted_value >= 0
+                                    );
+                                    const sum = foundationData.reduce((acc, r) => acc + r.extracted_value, 0);
+                                    dataset.data.push(sum);
+                                });
+                            }
+                        });
+                    });
+
+                    const ctx = document.getElementById('comparisonChart');
+                    if (!ctx) {
+                        console.error('Canvas element not found');
+                        return;
+                    }
+
+                    try {
+                        this.comparisonChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: foundations,
+                                datasets: Array.from(llmDataMap.values())
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        position: 'top',
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Sum of Scores'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    } catch (error) {
+                        console.error('Error creating chart:', error);
+                    }
                 }
+            },
+            watch: {
+                selectedReports() {
+                    this.$nextTick(() => {
+                        // Add a small delay to ensure DOM is fully rendered
+                        setTimeout(() => {
+                            this.renderComparison();
+                        }, 50);
+                    });
+                }
+            },
+            mounted() {
+                this.loadReports();
             }
         }).mount('#app');
     </script>

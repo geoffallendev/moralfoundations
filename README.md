@@ -58,25 +58,27 @@ GOOGLE_API_KEY=your-google-api-key-here
 
 ## Usage
 
-### Option 1: Interactive Questionnaire (Human Responses)
+### Web Interface (All-in-One SPA)
 
-Take the questionnaire yourself and view your results instantly:
+The project includes a unified single-page application with three main features:
 
-1. **Open the questionnaire:**
+1. **Open the web interface:**
    ```bash
-   open index.html
-   # Or using HTTP server:
+   # Using HTTP server (recommended):
    python -m http.server 8000
    # Then navigate to: http://localhost:8000/index.html
+
+   # Or using Podman httpd:
+   podman run -d --name httpd -p 8080:8080 -v $(pwd):/var/www/html:Z registry.redhat.io/ubi10/httpd-24
+   # Then navigate to: http://localhost:8080/index.html
    ```
 
-2. **Complete all questions** in Part 1 and Part 2
+2. **Three integrated tabs:**
+   - **Take Questionnaire** - Complete the MFQ-30 yourself and see instant results
+   - **Dashboard** - View all generated reports (human and LLM)
+   - **Compare Results** - Select and compare multiple reports side-by-side
 
-3. **View your interactive report** with charts and detailed scores
-
-4. **Optional:** Download JSON results for further analysis or comparison with LLM responses
-
-### Option 2: LLM Analysis
+### LLM Analysis (Command Line)
 
 Run automated analysis across multiple LLMs:
 ```bash
@@ -96,73 +98,30 @@ The program will:
    - CSV summary for analysis
    - Text summary with sum of scores by moral foundation and LLM
    - Interactive HTML report with visualizations
-   - **Automatically update the dashboard index**
+   - **Automatically update the index for the web dashboard**
 
 ### Viewing Results
 
-#### Option 1: Individual Report (Latest)
-Open the most recent HTML file in `results/` directory
-
-#### Option 2: Dashboard (Recommended)
-View all reports in a unified dashboard:
-
-**Using local file:**
-```bash
-open results/dashboard.html
-```
-
-**Using HTTP server (recommended):**
-```bash
-# Using Python's built-in server
-cd results
-python -m http.server 8000
-
-# Or using your Podman httpd container
-podman run -d --name httpd -p 8080:8080 -v $(pwd):/var/www/html:Z registry.redhat.io/ubi10/httpd-24
-
-# Then open: http://localhost:8000/dashboard.html
-# Or: http://localhost:8080/results/dashboard.html
-```
-
-### Dashboard Features
-
-The dashboard automatically displays:
-
-1. **Overview Tab**
-   - Summary statistics across all reports
-   - Latest report quick view
-   - Total LLMs tested and responses collected
-
-2. **All Reports Tab**
-   - List of all analysis reports
-   - Metadata for each report (date, LLMs, questions)
-   - Quick access to individual reports
-
-3. **Compare Tab**
-   - Select multiple reports to compare
-   - Side-by-side visualization of scores
-   - Identify differences between runs
-
-4. **Trends Tab**
-   - Evolution of LLM scores over time
-   - Track how moral foundation scores change
-   - Line charts showing historical data
-
-**Auto-Discovery**: The dashboard automatically finds all reports in the `results/` directory. Just run a new analysis and refresh the dashboard to see it!
+After running analysis, view results in the unified web interface:
+- Navigate to the **Dashboard** tab to see all reports
+- Use the **Compare Results** tab to analyze multiple LLM outputs side-by-side
+- Individual HTML reports are also available in the `results/` directory
 
 ## Project Structure
 
-- [index.html](index.html) - Interactive questionnaire for human responses
-- [moral_foundations_analyzer.py](moral_foundations_analyzer.py) - Main LLM analysis program
-- [generate_html_report.py](generate_html_report.py) - HTML report generator (works with both human and LLM responses)
-- [moralfoundations30-dataset.csv](moralfoundations30-dataset.csv) - MFQ-30 questionnaire data
-- [moral_foundations_part1_prompt](moral_foundations_part1_prompt) - Instructions for Part 1 questions (LLM)
-- [moral_foundations_part2_prompt](moral_foundations_part2_prompt) - Instructions for Part 2 questions (LLM)
-- [requirements.txt](requirements.txt) - Python dependencies
-- `.env` - API keys (not committed to version control)
-- `results/` - Output directory for analysis results
-  - `dashboard.html` - Multi-report dashboard (auto-updating)
-  - `index.json` - Report index (auto-generated)
+- **[index.html](index.html)** - Unified SPA with:
+  - Interactive questionnaire for human responses
+  - Dashboard to view all reports
+  - Comparison tool for analyzing multiple reports
+- **[moral_foundations_analyzer.py](moral_foundations_analyzer.py)** - Main LLM analysis program
+- **[generate_html_report.py](generate_html_report.py)** - HTML report generator
+- **[moralfoundations30-dataset.csv](moralfoundations30-dataset.csv)** - MFQ-30 questionnaire data
+- **[moral_foundations_part1_prompt](moral_foundations_part1_prompt)** - Instructions for Part 1 questions (LLM)
+- **[moral_foundations_part2_prompt](moral_foundations_part2_prompt)** - Instructions for Part 2 questions (LLM)
+- **[requirements.txt](requirements.txt)** - Python dependencies
+- **`.env`** - API keys (not committed to version control)
+- **`results/`** - Output directory for analysis results
+  - `index.json` - Report index (auto-generated, used by web dashboard)
   - `moral_foundations_results_*.json` - Individual analysis data
   - `moral_foundations_results_*.html` - Individual reports
   - `summary_*.txt` - Text summaries
