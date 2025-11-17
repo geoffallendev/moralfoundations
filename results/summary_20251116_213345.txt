@@ -1,0 +1,31 @@
+================================================================================
+MORAL FOUNDATIONS LLM ANALYSIS SUMMARY
+================================================================================
+
+Analysis Date: 2025-11-16 21:33:45
+Total Responses: 64
+LLMs Tested: gpt-4, gpt-3.5-turbo
+Questions Analyzed: 32
+
+--------------------------------------------------------------------------------
+SUM OF SCORES BY LLM AND MORAL FOUNDATION
+--------------------------------------------------------------------------------
+
+
+gpt-3.5-turbo:
+  Valid responses: 32/32
+  Authority: 20
+  Control: 7
+  Fairness-Reciprocity: 26
+  Harm-Care: 27
+  Loyalty: 18
+  Purity-Sanctity: 20
+
+gpt-4:
+  Valid responses: 30/32
+  Authority: 19
+  Control: 5
+  Fairness-Reciprocity: 24
+  Harm-Care: 28
+  Loyalty: 16
+  Purity-Sanctity: 17

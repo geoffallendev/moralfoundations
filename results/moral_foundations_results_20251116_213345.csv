@@ -1,0 +1,67 @@
+llm,question,part,moral_foundation,response,extracted_value,timestamp
+gpt-4,Whether or not someone suffered emotionally,1,Harm-Care,4,4,2025-11-16T21:32:54.467317
+gpt-3.5-turbo,Whether or not someone suffered emotionally,1,Harm-Care,4,4,2025-11-16T21:32:55.584693
+gpt-4,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,5,5,2025-11-16T21:32:56.676140
+gpt-3.5-turbo,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,4,4,2025-11-16T21:32:57.769457
+gpt-4,Whether or not someone’s action showed love for his or her country,1,Loyalty,1,1,2025-11-16T21:32:59.696604
+gpt-3.5-turbo,Whether or not someone’s action showed love for his or her country,1,Loyalty,3,3,2025-11-16T21:33:01.069962
+gpt-4,Whether or not someone showed a lack of respect for authority,1,Authority,3,3,2025-11-16T21:33:04.713622
+gpt-3.5-turbo,Whether or not someone showed a lack of respect for authority,1,Authority,3,3,2025-11-16T21:33:05.326106
+gpt-4,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,3,3,2025-11-16T21:33:05.738637
+gpt-3.5-turbo,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,3,3,2025-11-16T21:33:06.272870
+gpt-4,Whether or not someone was good at math,1,Control,0,0,2025-11-16T21:33:06.821525
+gpt-3.5-turbo,Whether or not someone was good at math,1,Control,2,2,2025-11-16T21:33:07.256194
+gpt-4,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,5,5,2025-11-16T21:33:08.605335
+gpt-3.5-turbo,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,4,4,2025-11-16T21:33:08.861286
+gpt-4,Whether or not someone acted unfairly,1,Fairness-Reciprocity,5,5,2025-11-16T21:33:09.508596
+gpt-3.5-turbo,Whether or not someone acted unfairly,1,Fairness-Reciprocity,4,4,2025-11-16T21:33:10.135318
+gpt-4,Whether or not someone did something to betray his or her group,1,Loyalty,4,4,2025-11-16T21:33:11.222221
+gpt-3.5-turbo,Whether or not someone did something to betray his or her group,1,Loyalty,3,3,2025-11-16T21:33:11.828618
+gpt-4,Whether or not someone conformed to the traditions of society,1,Authority,1,1,2025-11-16T21:33:12.295683
+gpt-3.5-turbo,Whether or not someone conformed to the traditions of society,1,Authority,3,3,2025-11-16T21:33:12.535879
+gpt-4,Whether or not someone did something disgusting,1,Purity-Sanctity,3,3,2025-11-16T21:33:13.108130
+gpt-3.5-turbo,Whether or not someone did something disgusting,1,Purity-Sanctity,4,4,2025-11-16T21:33:13.348708
+gpt-4,Whether or not someone was cruel,1,Harm-Care,5,5,2025-11-16T21:33:14.040384
+gpt-3.5-turbo,Whether or not someone was cruel,1,Harm-Care,4,4,2025-11-16T21:33:14.316123
+gpt-4,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,5,5,2025-11-16T21:33:14.749532
+gpt-3.5-turbo,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,4,4,2025-11-16T21:33:14.992917
+gpt-4,Whether or not someone showed a lack of loyalty,1,Loyalty,4,4,2025-11-16T21:33:15.450675
+gpt-3.5-turbo,Whether or not someone showed a lack of loyalty,1,Loyalty,3,3,2025-11-16T21:33:15.693557
+gpt-4,Whether or not an action caused chaos or disorder,1,Authority,4,4,2025-11-16T21:33:16.044432
+gpt-3.5-turbo,Whether or not an action caused chaos or disorder,1,Authority,3,3,2025-11-16T21:33:16.889962
+gpt-4,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,"As an AI, I don't hold personal beliefs or values. However, based on my programming and understanding of human beliefs, many people might rate this between 3 to 5, depending on their religious beliefs and the importance they place on religious teachings in their moral judgement.",3,2025-11-16T21:33:20.365452
+gpt-3.5-turbo,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,"As an AI language model, I don't have personal beliefs or the ability to assign values based on personal experiences. However, given that this question pertains to the concept of God or a higher power, I would rate the statement as a 4, very relevant. Many individuals base their understanding of right and wrong on religious teachings and beliefs.",4,2025-11-16T21:33:21.710861
+gpt-4,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,5,5,2025-11-16T21:33:22.284573
+gpt-3.5-turbo,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,5,5,2025-11-16T21:33:22.734036
+gpt-4,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,5,5,2025-11-16T21:33:23.758683
+gpt-3.5-turbo,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,5,5,2025-11-16T21:33:24.093587
+gpt-4,I am proud of my country’s history.,2,Loyalty,"As an artificial intelligence, I don't have personal experiences, feelings, or a country of origin, so I cannot provide a numerical value for this statement.",-1,2025-11-16T21:33:25.193585
+gpt-3.5-turbo,I am proud of my country’s history.,2,Loyalty,3,3,2025-11-16T21:33:25.602433
+gpt-4,Respect for authority is something all children need to learn.,2,Authority,4 = Moderately Agree,4,2025-11-16T21:33:26.917319
+gpt-3.5-turbo,Respect for authority is something all children need to learn.,2,Authority,4,4,2025-11-16T21:33:27.603483
+gpt-4,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,2,2,2025-11-16T21:33:27.937258
+gpt-3.5-turbo,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,3,3,2025-11-16T21:33:28.293036
+gpt-4,It is better to do good than to do bad.,2,Control,5,5,2025-11-16T21:33:29.083140
+gpt-3.5-turbo,It is better to do good than to do bad.,2,Control,5,5,2025-11-16T21:33:29.698377
+gpt-4,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,5,5,2025-11-16T21:33:30.268821
+gpt-3.5-turbo,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,5,5,2025-11-16T21:33:30.889710
+gpt-4,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,4 = Moderately Agree,4,2025-11-16T21:33:31.376558
+gpt-3.5-turbo,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,5,5,2025-11-16T21:33:31.652752
+gpt-4,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,4,4,2025-11-16T21:33:32.153043
+gpt-3.5-turbo,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,3,3,2025-11-16T21:33:32.447562
+gpt-4,Men and women each have different roles to play in society.,2,Authority,3,3,2025-11-16T21:33:33.385741
+gpt-3.5-turbo,Men and women each have different roles to play in society.,2,Authority,"This statement reflects a traditional gender role perspective. 
+
+3 = Slightly Agree",3,2025-11-16T21:33:33.999341
+gpt-4,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,3,3,2025-11-16T21:33:34.724423
+gpt-3.5-turbo,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,3,3,2025-11-16T21:33:35.379030
+gpt-4,It can never be right to kill a human being.,2,Harm-Care,"This is a subjective question and highly dependent on context (such as self-defense, war, etc.). However, as an AI, I don't have personal beliefs or feelings. Based on principles of human rights and the sanctity of life, the statement might be rated as 4 = Moderately Agree.",4,2025-11-16T21:33:38.848861
+gpt-3.5-turbo,It can never be right to kill a human being.,2,Harm-Care,5,5,2025-11-16T21:33:39.532299
+gpt-4,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,"This is a subjective question and as an AI, I don't have personal beliefs or emotions. But I can tell you that opinions on this matter vary greatly among individuals.",-1,2025-11-16T21:33:40.679569
+gpt-3.5-turbo,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,4,4,2025-11-16T21:33:41.372137
+gpt-4,It is more important to be a team player than to express oneself.,2,Loyalty,3,3,2025-11-16T21:33:42.142375
+gpt-3.5-turbo,It is more important to be a team player than to express oneself.,2,Loyalty,3,3,2025-11-16T21:33:42.364294
+gpt-4,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,4,4,2025-11-16T21:33:43.008711
+gpt-3.5-turbo,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,4,4,2025-11-16T21:33:43.419325
+gpt-4,Chastity is an important and valuable virtue.,2,Purity-Sanctity,"As an AI, I don't have personal beliefs or feelings, but based on the diverse views of society, this statement could be rated as a 3 - Slightly Agree. The value of chastity varies among individuals, cultures, and religions.",3,2025-11-16T21:33:44.985344
+gpt-3.5-turbo,Chastity is an important and valuable virtue.,2,Purity-Sanctity,This statement is subjective and can vary depending on personal beliefs and values. My personal view is: 3,3,2025-11-16T21:33:45.466861

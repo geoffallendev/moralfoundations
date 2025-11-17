@@ -1,0 +1,66 @@
+[
+  {
+    "filename": "moral_foundations_results_20251116_221734.json",
+    "filepath": "/results/moral_foundations_results_20251116_221734.json",
+    "timestamp": "2025-11-16T22:09:28.434038",
+    "llms": [
+      "gemini-2.5-pro"
+    ],
+    "llm_count": 1,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 32,
+    "valid_responses": 32,
+    "date_generated": "2025-11-16T22:17:34.294045"
+  },
+  {
+    "filename": "moral_foundations_results_20251116_220302.json",
+    "filepath": "/results/moral_foundations_results_20251116_220302.json",
+    "timestamp": "2025-11-16T22:00:27.644332",
+    "llms": [
+      "claude-sonnet-4"
+    ],
+    "llm_count": 1,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 32,
+    "valid_responses": 32,
+    "date_generated": "2025-11-16T22:03:02.253866"
+  },
+  {
+    "filename": "moral_foundations_results_20251116_213345.json",
+    "filepath": "/results/moral_foundations_results_20251116_213345.json",
+    "timestamp": "2025-11-16T21:32:54.467317",
+    "llms": [
+      "gpt-3.5-turbo",
+      "gpt-4"
+    ],
+    "llm_count": 2,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 64,
+    "valid_responses": 62,
+    "date_generated": "2025-11-16T21:58:44.760369"
+  }
+]

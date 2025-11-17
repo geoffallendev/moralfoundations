@@ -483,6 +483,9 @@
                 </table>
 
                 <div class="button-container">
+                    <button class="btn-secondary" @click="resetQuestionnaire" style="margin-right: auto;">
+                        Reset Questionnaire
+                    </button>
                     <button class="btn-primary" @click="goToPart2" :disabled="!isPart1Complete">
                         Continue to Part 2 →
                     </button>
@@ -536,6 +539,9 @@
                 </table>
 
                 <div class="button-container">
+                    <button class="btn-secondary" @click="resetQuestionnaire" style="margin-right: auto;">
+                        Reset Questionnaire
+                    </button>
                     <button class="btn-secondary" @click="goToPart1">
                         ← Back to Part 1
                     </button>
@@ -588,8 +594,8 @@
                     <button class="btn-primary" @click="downloadJSON">
                         Download JSON Results
                     </button>
-                    <button class="btn-primary" @click="restart">
-                        Start Over
+                    <button class="btn-secondary" @click="resetQuestionnaire">
+                        Reset Questionnaire
                     </button>
                 </div>
             </div>
@@ -654,17 +660,32 @@
             <!-- Compare Tab -->
             <div v-show="mainTab === 'compare'">
                 <h1>Compare Results</h1>
-                <p style="color: #666; margin-bottom: 30px;">Select reports to compare LLM performance</p>
+                <p style="color: #666; margin-bottom: 30px;">Compare your results with LLM performance</p>
 
-                <div v-if="allReports.length === 0" style="text-align: center; padding: 60px 20px; color: #666;">
-                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
-                    <h3>No Reports Found</h3>
-                    <p>Generate reports first to enable comparison.</p>
+                <!-- User Results Section -->
+                <div v-if="hasUserResults" style="margin-bottom: 30px;">
+                    <div class="report-item" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-left: 4px solid #667eea;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" v-model="includeUserResults" checked>
+                            <div style="flex: 1;">
+                                <h3 style="color: #333; margin-bottom: 5px;">Your Questionnaire Results</h3>
+                                <div style="color: #666; font-size: 0.9em;">
+                                    Completed • User
+                                </div>
+                            </div>
+                        </label>
+                    </div>
                 </div>
 
-                <div v-else>
-                    <h3 style="margin-bottom: 20px; color: #667eea;">Select Reports to Compare</h3>
-                    <div class="reports-list" style="margin-bottom: 30px;">
+                <div v-if="allReports.length === 0 && !hasUserResults" style="text-align: center; padding: 60px 20px; color: #666;">
+                    <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+                    <h3>No Reports Found</h3>
+                    <p>Complete the questionnaire or run LLM analysis to enable comparison.</p>
+                </div>
+
+                <div v-if="allReports.length > 0 || hasUserResults">
+                    <h3 v-if="allReports.length > 0" style="margin-bottom: 20px; color: #667eea;">Select LLM Reports to Compare</h3>
+                    <div v-if="allReports.length > 0" class="reports-list" style="margin-bottom: 30px;">
                         <div v-for="(report, index) in allReports" :key="index" class="report-item">
                             <label style="display: flex; align-items: center; cursor: pointer;">
                                 <input type="checkbox" v-model="selectedReports" :value="index">
@@ -679,7 +700,7 @@
                         </div>
                     </div>
 
-                    <div v-if="selectedReports.length > 0">
+                    <div v-if="includeUserResults || selectedReports.length > 0">
                         <div class="chart-container">
                             <h3 style="margin-bottom: 20px; color: #495057;">Score Comparison by Moral Foundation</h3>
                             <div class="chart-wrapper">
@@ -708,6 +729,7 @@
                     allReports: [],
                     selectedReports: [],
                     comparisonChart: null,
+                    includeUserResults: false,
                     questions: [
                         { id: 'p1q1', question: "Whether or not someone suffered emotionally", part: 1, moral: "Harm-Care" },
                         { id: 'p1q2', question: "Whether or not some people were treated differently than others", part: 1, moral: "Fairness-Reciprocity" },
@@ -765,6 +787,10 @@
                 totalResponses() {
                     return this.allReports.reduce((sum, r) => sum + r.total_responses, 0);
                 },
+                hasUserResults() {
+                    // Check if user has completed the questionnaire
+                    return Object.keys(this.answers).length >= 24; // At least 24 non-control questions
+                },
                 foundationScores() {
                     const scores = {};
 
@@ -787,6 +813,30 @@
             methods: {
                 setAnswer(questionId, rating) {
                     this.answers[questionId] = rating;
+                    // Save to session storage
+                    this.saveToSession();
+                },
+                saveToSession() {
+                    sessionStorage.setItem('mfq_answers', JSON.stringify(this.answers));
+                },
+                loadFromSession() {
+                    const saved = sessionStorage.getItem('mfq_answers');
+                    if (saved) {
+                        try {
+                            this.answers = JSON.parse(saved);
+                            console.log('Loaded answers from session:', Object.keys(this.answers).length, 'questions');
+                        } catch (error) {
+                            console.error('Error loading from session:', error);
+                        }
+                    }
+                },
+                resetQuestionnaire() {
+                    if (confirm('Are you sure you want to reset the questionnaire? This will clear all your answers.')) {
+                        this.answers = {};
+                        this.currentPage = 1;
+                        sessionStorage.removeItem('mfq_answers');
+                        console.log('Questionnaire reset');
+                    }
                 },
                 goToPart1() {
                     this.currentPage = 1;
@@ -859,8 +909,7 @@
                     });
                 },
                 restart() {
-                    this.currentPage = 1;
-                    this.answers = {};
+                    this.resetQuestionnaire();
                 },
                 downloadJSON() {
                     // Create results in the same format as the LLM analyzer
@@ -901,6 +950,10 @@
                     if (tab === 'dashboard' || tab === 'compare') {
                         this.loadReports();
                     }
+                    // Auto-enable user results if switching to compare tab and user has completed questionnaire
+                    if (tab === 'compare' && this.hasUserResults) {
+                        this.includeUserResults = true;
+                    }
                 },
                 async loadReports() {
                     try {
@@ -918,19 +971,12 @@
                     }
                 },
                 async renderComparison() {
-                    if (this.selectedReports.length === 0) return;
+                    if (this.selectedReports.length === 0 && !this.includeUserResults) return;
 
                     // Destroy existing chart
                     if (this.comparisonChart) {
                         this.comparisonChart.destroy();
                     }
-
-                    // Load data for selected reports
-                    const reportsData = await Promise.all(
-                        this.selectedReports.map(idx =>
-                            fetch(this.allReports[idx].filepath).then(r => r.json())
-                        )
-                    );
 
                     const foundations = ['Harm-Care', 'Fairness-Reciprocity', 'Loyalty', 'Authority', 'Purity-Sanctity'];
                     const colors = [
@@ -946,6 +992,26 @@
 
                     const llmDataMap = new Map();
                     let colorIdx = 0;
+
+                    // Add user results first if included
+                    if (this.includeUserResults && this.hasUserResults) {
+                        const userScores = this.foundationScores;
+                        llmDataMap.set('User', {
+                            label: 'Your Results',
+                            data: foundations.map(f => userScores[f] ? userScores[f].total : 0),
+                            backgroundColor: 'rgba(255, 193, 7, 0.8)',
+                            borderColor: 'rgba(255, 193, 7, 1)',
+                            borderWidth: 2
+                        });
+                        colorIdx++;
+                    }
+
+                    // Load data for selected LLM reports
+                    const reportsData = await Promise.all(
+                        this.selectedReports.map(idx =>
+                            fetch(this.allReports[idx].filepath).then(r => r.json())
+                        )
+                    );
 
                     this.selectedReports.forEach((reportIdx, idx) => {
                         const data = reportsData[idx];
@@ -1023,10 +1089,19 @@
                             this.renderComparison();
                         }, 50);
                     });
+                },
+                includeUserResults() {
+                    this.$nextTick(() => {
+                        // Add a small delay to ensure DOM is fully rendered
+                        setTimeout(() => {
+                            this.renderComparison();
+                        }, 50);
+                    });
                 }
             },
             mounted() {
                 this.loadReports();
+                this.loadFromSession();
             }
         }).mount('#app');
     </script>

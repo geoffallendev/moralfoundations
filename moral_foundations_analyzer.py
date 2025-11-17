@@ -73,8 +73,8 @@ class MoralFoundationsAnalyzer:
 
         # Google Gemini models
         if os.getenv("GOOGLE_API_KEY"):
-            llms["gemini-pro"] = ChatGoogleGenerativeAI(
-                model="gemini-pro",
+            llms["gemini-2.5-pro"] = ChatGoogleGenerativeAI(
+                model="gemini-2.5-pro",
                 temperature=0.7,
                 google_api_key=os.getenv("GOOGLE_API_KEY")
             )

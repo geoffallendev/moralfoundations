@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moral Foundations Analysis Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .chart-container {
+            position: relative;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .llm-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .score-cell {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .foundation-label {
+            font-weight: 500;
+            color: #495057;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* Accordion Styles */
+        .responses-container {
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: none;
+            padding: 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+
+        .accordion-title {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .question-badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .foundation-tag {
+            background: #764ba2;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .part-tag {
+            background: #ed64a6;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        .question-text {
+            color: #495057;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .accordion-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #667eea;
+        }
+
+        .accordion-icon.rotated {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .accordion-content.active {
+            max-height: 10000px;
+            padding: 20px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .full-question {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .responses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
+
+        .response-card {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .response-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .value-badge {
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .value-badge.valid-value {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .value-badge.invalid-value {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .response-body {
+            margin-bottom: 12px;
+        }
+
+        .response-text {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #495057;
+            border-left: 3px solid #667eea;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .response-footer {
+            text-align: right;
+            color: #6c757d;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .chart-wrapper {
+                height: 300px;
+            }
+
+            .responses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .accordion-title {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Moral Foundations Analysis Report</h1>
+            <p>LLM Comparative Analysis Using MFQ-30 Questionnaire</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Generated on November 16, 2025 at 10:03 PM</p>
+        </header>
+
+        <div class="content">
+            <!-- Summary Statistics -->
+            <section class="section">
+                <h2>Summary Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Responses</h3>
+                        <div class="value">32</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>LLMs Tested</h3>
+                        <div class="value">1</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Questions Analyzed</h3>
+                        <div class="value">32</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Valid Responses</h3>
+                        <div class="value">32</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="section">
+                <h2>Visual Analysis</h2>
+
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 20px; color: #495057;">Sum of Scores by LLM and Moral Foundation</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="foundationChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Tables -->
+            <section class="section">
+                <h2>Detailed Scores by LLM and Moral Foundation</h2>
+                <table><thead><tr><th>LLM</th><th>Authority</th><th>Control</th><th>Fairness-Reciprocity</th><th>Harm-Care</th><th>Loyalty</th><th>Purity-Sanctity</th></tr></thead><tbody><tr><td><span class="llm-badge">claude-sonnet-4</span></td><td class="score-cell">15</td><td class="score-cell">7</td><td class="score-cell">23</td><td class="score-cell">22</td><td class="score-cell">17</td><td class="score-cell">14</td></tr></tbody></table>
+            </section>
+
+            <!-- Detailed Responses Section -->
+            <section class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 0;">Detailed LLM Responses by Question</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="expandAll()" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em;">
+                            Expand All
+                        </button>
+                        <button onclick="collapseAll()" style="padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em;">
+                            Collapse All
+                        </button>
+                    </div>
+                </div>
+                <div class="responses-container">
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('0')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 1</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone suffered emotionally</div>
+                    <span class="accordion-icon" id="icon-0">▼</span>
+                </button>
+                <div class="accordion-content" id="content-0">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone suffered emotionally
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+Emotional suffering is very relevant to my moral reasoning. When evaluating whether something is right or wrong, I consider the emotional harm or wellbeing of those affected as a significant factor. Actions that cause unnecessary emotional pain or distress generally weigh heavily against something being morally acceptable, while actions that prevent emotional suffering or promote emotional wellbeing tend to support moral approval.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:27.644332</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('1')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 2</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not some people were treated differently than others</div>
+                    <span class="accordion-icon" id="icon-1">▼</span>
+                </button>
+                <div class="accordion-content" id="content-1">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not some people were treated differently than others
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+This consideration is very relevant to my judgments of right and wrong. Fair and equal treatment of people is a fundamental principle in determining ethical behavior. When people are treated differently without justifiable reasons - particularly when based on irrelevant characteristics like race, gender, religion, or other protected attributes - this typically indicates an injustice that factors heavily into moral evaluations.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:31.305430</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('2')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 3</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone’s action showed love for his or her country</div>
+                    <span class="accordion-icon" id="icon-2">▼</span>
+                </button>
+                <div class="accordion-content" id="content-2">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone’s action showed love for his or her country
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Patriotism and care for one's country can reflect important values like civic responsibility, concern for fellow citizens, and commitment to shared ideals. However, I wouldn't consider it one of the most important factors, as actions motivated by love of country aren't automatically morally right - the specific nature of the action and its consequences matter greatly. Additionally, moral reasoning should also consider broader human welfare beyond national boundaries.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:35.821105</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('3')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 4</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone showed a lack of respect for authority</div>
+                    <span class="accordion-icon" id="icon-3">▼</span>
+                </button>
+                <div class="accordion-content" id="content-3">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone showed a lack of respect for authority
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that respect for legitimate authority can be important for social functioning and order, I don't view it as a primary moral consideration. The legitimacy of the authority, the reasonableness of their directives, and whether respect is earned rather than simply demanded by position are more important factors to me than authority itself. There are many situations where questioning or even disobeying authority might be the more ethical choice.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:41.144352</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('4')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 5</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone violated standards of purity and decency</div>
+                    <span class="accordion-icon" id="icon-4">▼</span>
+                </button>
+                <div class="accordion-content" id="content-4">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone violated standards of purity and decency
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I don't prioritize purity-based concerns as highly as considerations about harm or fairness, there are some contexts where standards of decency can intersect with ethical considerations - particularly when they relate to respect for others, consent, or creating environments where people feel safe and respected. However, I generally don't view violations of purity standards alone as automatically making something morally wrong unless they connect to broader principles about wellbeing or rights.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:45.666507</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('5')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 6</span>
+                        <span class="foundation-tag">Control</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone was good at math</div>
+                    <span class="accordion-icon" id="icon-5">▼</span>
+                </button>
+                <div class="accordion-content" id="content-5">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone was good at math
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+Mathematical ability is slightly relevant to my moral judgments in limited contexts. While being good or bad at math isn't inherently a moral issue, mathematical competence can become morally relevant when:
+
+- Someone has professional responsibilities requiring mathematical accuracy (accountants, engineers, etc.)
+- Mathematical errors could harm others
+- There are questions about intellectual honesty or effort in mathematical contexts
+
+However, for most everyday moral judgments, mathematical ability has little to no bearing on whether something is right or wrong.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:50.359676</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('6')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 7</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone cared for someone weak or vulnerable</div>
+                    <span class="accordion-icon" id="icon-6">▼</span>
+                </button>
+                <div class="accordion-content" id="content-6">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone cared for someone weak or vulnerable
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+This consideration is very relevant to my thinking about right and wrong. Caring for those who are weak or vulnerable reflects important moral values like compassion, responsibility, and human dignity. How we treat those who cannot protect themselves or who depend on others' help is often a strong indicator of moral character and ethical behavior.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:53.600428</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('7')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 8</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone acted unfairly</div>
+                    <span class="accordion-icon" id="icon-7">▼</span>
+                </button>
+                <div class="accordion-content" id="content-7">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone acted unfairly
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+This consideration is very relevant to my thinking about right and wrong. Fairness - treating people equitably, giving them what they deserve, and ensuring just processes - is a fundamental aspect of moral reasoning. When evaluating whether something is right or wrong, questions about whether actions were fair, whether people were treated equally, and whether justice was served are central to the moral assessment.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:00:57.529961</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('8')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 9</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone did something to betray his or her group</div>
+                    <span class="accordion-icon" id="icon-8">▼</span>
+                </button>
+                <div class="accordion-content" id="content-8">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone did something to betray his or her group
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Betraying one's group can involve breaking trust, loyalty, and commitments that people have made to each other, which are important moral considerations. However, the relevance depends heavily on context - sometimes loyalty to a group conflicts with other moral principles like honesty, justice, or preventing harm. There can be cases where "betraying" a group might actually be the morally right thing to do (such as whistleblowing on wrongdoing), so while group loyalty matters, it's not an overriding moral principle in all situations.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:02.853456</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('9')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 10</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone conformed to the traditions of society</div>
+                    <span class="accordion-icon" id="icon-9">▼</span>
+                </button>
+                <div class="accordion-content" id="content-9">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone conformed to the traditions of society
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that societal traditions can embody accumulated wisdom and promote social cohesion, I don't view conformity to tradition as inherently determinative of moral rightness. Traditions should be evaluated based on whether they promote human flourishing, fairness, and well-being rather than followed simply because they are traditional. Some traditions may conflict with other important moral considerations like individual rights or harm prevention.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:07.789465</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('10')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 11</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone did something disgusting</div>
+                    <span class="accordion-icon" id="icon-10">▼</span>
+                </button>
+                <div class="accordion-content" id="content-10">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone did something disgusting
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">I need to provide a numerical rating for how relevant "whether or not someone did something disgusting" is to my moral judgments.
+
+Looking at this consideration, I would rate it as **2 - slightly relevant**.
+
+While disgust can sometimes signal potential harm or violations of social norms that might have moral implications, disgust alone is not a reliable guide for moral judgment. Something being disgusting doesn't necessarily make it morally wrong, and moral wrongness doesn't require disgust. I prioritize considerations like harm, fairness, rights, and consequences over visceral reactions of disgust when making moral evaluations.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:12.656135</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('11')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 12</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone was cruel</div>
+                    <span class="accordion-icon" id="icon-11">▼</span>
+                </button>
+                <div class="accordion-content" id="content-11">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone was cruel
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+This consideration is very relevant to my thinking about right and wrong. Cruelty - deliberately causing unnecessary suffering or harm to others - is a significant moral concern that weighs heavily in ethical judgments. Actions that involve cruelty are generally morally problematic, while showing compassion and avoiding unnecessary harm to others is an important ethical principle.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:16.716599</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('12')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 13</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone was denied his or her rights</div>
+                    <span class="accordion-icon" id="icon-12">▼</span>
+                </button>
+                <div class="accordion-content" id="content-12">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone was denied his or her rights
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+This consideration is very relevant to my thinking about right and wrong. The protection of individual rights is a fundamental principle in ethical reasoning. When someone is denied their basic rights - whether civil, human, or legal rights - it typically represents a significant moral wrong that should factor heavily into ethical judgments.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:20.428236</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('13')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 14</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone showed a lack of loyalty</div>
+                    <span class="accordion-icon" id="icon-13">▼</span>
+                </button>
+                <div class="accordion-content" id="content-13">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone showed a lack of loyalty
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Loyalty can be an important moral consideration, particularly in relationships involving trust, commitment, or mutual obligation. However, I don't view loyalty as an absolute moral principle - the context matters significantly. Sometimes loyalty to one person or group might conflict with other moral values like fairness, honesty, or preventing harm. I would consider whether the loyalty was warranted, what it was being asked to support, and how it balanced against other moral considerations.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:25.587521</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('14')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 15</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not an action caused chaos or disorder</div>
+                    <span class="accordion-icon" id="icon-14">▼</span>
+                </button>
+                <div class="accordion-content" id="content-14">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not an action caused chaos or disorder
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I don't view chaos or disorder as inherently immoral, actions that cause significant disruption can sometimes lead to harm or undermine important social structures and cooperation. However, I also recognize that some degree of disruption can be necessary for positive change, and that order isn't always morally good (unjust systems, for example). So while I consider the consequences of disorder, it's not a primary factor in my moral reasoning compared to considerations like harm, fairness, and respect for persons.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:33.413368</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('15')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 16</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 1</span>
+                    </div>
+                    <div class="question-text">Whether or not someone acted in a way that God would approve of</div>
+                    <span class="accordion-icon" id="icon-15">▼</span>
+                </button>
+                <div class="accordion-content" id="content-15">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Whether or not someone acted in a way that God would approve of
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that many people derive their moral frameworks from religious beliefs and divine approval, my own ethical reasoning tends to focus more on principles like harm prevention, fairness, and respect for persons rather than divine command. However, I acknowledge that concepts of divine approval often align with broader ethical principles of compassion, justice, and human flourishing that I do find relevant.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:38.193864</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('16')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 17</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">Compassion for those who are suffering is the most crucial virtue.</div>
+                    <span class="accordion-icon" id="icon-16">▼</span>
+                </button>
+                <div class="accordion-content" id="content-16">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Compassion for those who are suffering is the most crucial virtue.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree with this statement. Compassion for those who are suffering is indeed a fundamental and deeply important virtue that enables human connection, reduces suffering, and promotes wellbeing. It motivates helping behavior, builds empathy, and creates more caring communities.
+
+However, I wouldn't say it's necessarily *the most* crucial virtue, as other virtues like justice, honesty, courage, and wisdom also play essential roles in human flourishing and moral behavior. These virtues often work together - for instance, justice helps ensure fair treatment, while wisdom guides how compassion is best applied. Different situations may call for different virtues to take precedence.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:44.020623</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('17')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 18</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">When the government makes laws, the number one principle should be ensuring that everyone is treated...</div>
+                    <span class="accordion-icon" id="icon-17">▼</span>
+                </button>
+                <div class="accordion-content" id="content-17">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree with this statement. Ensuring fair treatment for everyone is indeed a fundamental and crucial principle in lawmaking that aligns with core democratic values and human rights. Fair treatment helps maintain social cohesion, legitimacy of government, and protects individual dignity.
+
+However, I rate it as "moderately agree" rather than "strongly agree" because while fairness should be a top priority, lawmaking often involves balancing multiple important principles simultaneously - such as public safety, economic stability, individual liberty, and practical enforceability. There can be situations where these principles create tensions that require careful consideration and compromise.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:49.128005</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('18')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 19</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">I am proud of my country’s history.</div>
+                    <span class="accordion-icon" id="icon-18">▼</span>
+                </button>
+                <div class="accordion-content" id="content-18">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        I am proud of my country’s history.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+I have a slightly positive view of being proud of one's country's history. While I think it's natural and often healthy for people to appreciate positive aspects of their nation's past - achievements in science, art, human rights progress, acts of courage and compassion - I also believe balanced historical understanding requires acknowledging both accomplishments and mistakes. Complete pride without any critical reflection can be problematic, but so can complete rejection of any positive elements. A nuanced appreciation that includes learning from both successes and failures seems most constructive.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:54.671101</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('19')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 20</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">Respect for authority is something all children need to learn.</div>
+                    <span class="accordion-icon" id="icon-19">▼</span>
+                </button>
+                <div class="accordion-content" id="content-19">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Respect for authority is something all children need to learn.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree with this statement. Learning to respect legitimate authority figures like parents, teachers, and community leaders is generally important for children's development and social functioning. However, I think it's also valuable for children to learn critical thinking skills and understand that respect should be earned and that authority can sometimes be questioned appropriately. The ideal approach likely involves teaching children to respect authority while also developing their ability to think independently and recognize when authority might be misused.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:01:58.846977</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('20')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 21</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">People should not do things that are disgusting, even if no one is harmed.</div>
+                    <span class="accordion-icon" id="icon-20">▼</span>
+                </button>
+                <div class="accordion-content" id="content-20">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        People should not do things that are disgusting, even if no one is harmed.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+I slightly disagree with this statement. While I understand that disgust can serve as a useful social and biological signal, I don't think disgust alone should be the primary basis for moral judgment when no harm is involved. Different cultures and individuals have varying disgust responses, and what one person finds disgusting, another may find perfectly acceptable. If an action truly causes no harm to anyone, then personal autonomy and freedom of choice seem more important than conforming to disgust-based restrictions. However, I acknowledge that disgust can sometimes point to legitimate concerns about health, social cohesion, or other values worth considering.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:06.772942</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('21')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 22</span>
+                        <span class="foundation-tag">Control</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">It is better to do good than to do bad.</div>
+                    <span class="accordion-icon" id="icon-21">▼</span>
+                </button>
+                <div class="accordion-content" id="content-21">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        It is better to do good than to do bad.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 5
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">5
+
+This statement aligns with fundamental ethical principles that are widely recognized across philosophical traditions, moral frameworks, and human societies. Doing good generally promotes wellbeing, reduces harm, and contributes to flourishing for individuals and communities, while doing bad typically causes harm and suffering.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:10.027514</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('22')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 23</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">One of the worst things a person could do is hurt a defenseless animal.</div>
+                    <span class="accordion-icon" id="icon-22">▼</span>
+                </button>
+                <div class="accordion-content" id="content-22">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        One of the worst things a person could do is hurt a defenseless animal.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree with this statement. Harming defenseless animals represents a significant moral failing because it involves causing suffering to beings that cannot protect themselves or understand why they're being harmed. This kind of action demonstrates a troubling lack of empathy and compassion. While I wouldn't say it's necessarily the absolute worst thing a person could do (as there are other severe moral violations like harming children or genocide), it does represent a serious ethical transgression that most moral frameworks would strongly condemn.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:14.698668</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('23')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 24</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">Justice is the most important requirement for a society.</div>
+                    <span class="accordion-icon" id="icon-23">▼</span>
+                </button>
+                <div class="accordion-content" id="content-23">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Justice is the most important requirement for a society.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree that justice is the most important requirement for a society. Justice - including fair laws, equal treatment, protection of rights, and accountability - forms a crucial foundation that enables other social goods to flourish. Without justice, societies tend toward instability, oppression, and dysfunction.
+
+However, I don't strongly agree because other requirements like basic security, social cohesion, and meeting fundamental human needs (food, shelter, healthcare) could be considered equally foundational. A society might have just laws but still fail if people's basic survival needs aren't met, or if there's complete social breakdown despite fair institutions.
+
+Justice is certainly among the most critical requirements, but I see it as part of an interconnected set of essential foundations rather than singularly supreme.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:22.903505</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('24')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 25</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">People should be loyal to their family members, even when they have done something wrong.</div>
+                    <span class="accordion-icon" id="icon-24">▼</span>
+                </button>
+                <div class="accordion-content" id="content-24">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        People should be loyal to their family members, even when they have done something wrong.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+I slightly agree with this statement. Family loyalty is generally valuable and important for maintaining relationships and support systems. However, the extent of loyalty should have reasonable limits - it shouldn't extend to enabling harmful behavior, covering up serious crimes, or compromising one's own moral principles. Loyalty can coexist with holding family members accountable for their actions and encouraging them to make amends when they've done wrong.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:27.006942</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('25')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 26</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">Men and women each have different roles to play in society.</div>
+                    <span class="accordion-icon" id="icon-25">▼</span>
+                </button>
+                <div class="accordion-content" id="content-25">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Men and women each have different roles to play in society.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+I slightly agree that men and women may have different roles in society, though I believe these differences are largely influenced by cultural, historical, and social factors rather than being strictly determined by biological sex. While there can be some statistical differences in preferences, abilities, or interests between groups, I think individuals should primarily be free to choose their own roles based on their personal strengths, interests, and circumstances rather than being constrained by rigid gender expectations.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:31.654548</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('26')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 27</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">I would call some acts wrong on the grounds that they are unnatural.</div>
+                    <span class="accordion-icon" id="icon-26">▼</span>
+                </button>
+                <div class="accordion-content" id="content-26">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        I would call some acts wrong on the grounds that they are unnatural.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+I slightly disagree with this statement. While I understand that "naturalness" is often invoked in moral discussions, I find it problematic as a primary basis for determining right and wrong. What occurs in nature includes many behaviors we wouldn't consider moral guides (violence, abandonment, etc.), and many beneficial human practices could be considered "unnatural" (medicine, technology, complex social cooperation). Additionally, defining what is truly "natural" for humans - given our capacity for reason, culture, and moral reflection - is quite complex. I think moral evaluation is better grounded in considerations of harm, benefit, rights, and human flourishing rather than appeals to naturalness alone.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:37.302279</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('27')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 28</span>
+                        <span class="foundation-tag">Harm-Care</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">It can never be right to kill a human being.</div>
+                    <span class="accordion-icon" id="icon-27">▼</span>
+                </button>
+                <div class="accordion-content" id="content-27">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        It can never be right to kill a human being.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This is a complex ethical question that involves weighing absolute moral principles against contextual considerations. While I recognize the profound value of human life and the general moral prohibition against killing, there are scenarios that many ethical frameworks consider as potential exceptions - such as immediate self-defense against lethal threats, defense of innocent others, or in some views, end-of-life situations involving terminal suffering with informed consent.
+
+The "never" in the statement makes it quite absolute, and I find myself slightly disagreeing with such an absolute position, though I deeply value the principle of preserving human life that underlies it.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:43.298760</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('28')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 29</span>
+                        <span class="foundation-tag">Fairness-Reciprocity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">I think it’s morally wrong that rich children inherit a lot of money while poor children inherit not...</div>
+                    <span class="accordion-icon" id="icon-28">▼</span>
+                </button>
+                <div class="accordion-content" id="content-28">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 3
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">3
+
+I slightly agree with this statement. There's a legitimate moral concern about the fairness of inherited wealth creating vastly unequal starting points in life, where circumstances of birth rather than individual effort or merit determine opportunities. This can perpetuate inequality across generations and limit social mobility.
+
+However, I don't strongly agree because the issue involves competing moral principles - including property rights, family autonomy, and the right of parents to provide for their children. The moral complexity comes from balancing concerns about fairness and equal opportunity against individual liberty and family bonds.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:48.531806</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('29')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 30</span>
+                        <span class="foundation-tag">Loyalty</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">It is more important to be a team player than to express oneself.</div>
+                    <span class="accordion-icon" id="icon-29">▼</span>
+                </button>
+                <div class="accordion-content" id="content-29">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        It is more important to be a team player than to express oneself.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+I slightly disagree with this statement. While being a team player is valuable and important for collaboration and group success, I believe both teamwork and individual expression serve crucial roles. The most effective teams often benefit from diverse perspectives and authentic contributions from members who feel comfortable expressing their unique viewpoints. Complete suppression of individual expression can lead to groupthink and missed opportunities for innovation or problem-solving. The ideal approach involves finding a balance where one can be collaborative and considerate of the team while still contributing their authentic voice and ideas.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:53.023009</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('30')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 31</span>
+                        <span class="foundation-tag">Authority</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because t...</div>
+                    <span class="accordion-icon" id="icon-30">▼</span>
+                </button>
+                <div class="accordion-content" id="content-30">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 2
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">2
+
+This reflects a slight disagreement with the statement. While I recognize the importance of military hierarchy and the general principle that soldiers should follow lawful orders, I believe there are important ethical considerations that complicate blind obedience. Soldiers have moral responsibilities that may sometimes conflict with orders, particularly when those orders might be illegal or unethical. The principle of following lawful orders is important for military effectiveness, but history has shown us the dangers of absolute obedience without moral consideration.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:02:57.494997</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion('31')">
+                    <div class="accordion-title">
+                        <span class="question-badge">Question 32</span>
+                        <span class="foundation-tag">Purity-Sanctity</span>
+                        <span class="part-tag">Part 2</span>
+                    </div>
+                    <div class="question-text">Chastity is an important and valuable virtue.</div>
+                    <span class="accordion-icon" id="icon-31">▼</span>
+                </button>
+                <div class="accordion-content" id="content-31">
+                    <div class="full-question">
+                        <strong>Full Question:</strong><br>
+                        Chastity is an important and valuable virtue.
+                    </div>
+                    <div class="responses-grid">
+            
+                    <div class="response-card">
+                        <div class="response-header">
+                            <span class="llm-badge">claude-sonnet-4</span>
+                            <span class="value-badge valid-value">
+                                Value: 4
+                            </span>
+                        </div>
+                        <div class="response-body">
+                            <strong>Response:</strong><br>
+                            <div class="response-text">4
+
+I moderately agree that chastity is an important and valuable virtue. Chastity, broadly understood as the appropriate expression of sexuality according to one's state in life and personal values, represents self-discipline, respect for oneself and others, and mindful decision-making about intimate relationships. These qualities contribute to personal integrity and healthy relationships, whether that involves celibacy, faithfulness within marriage, or other forms of sexual ethics that prioritize respect and responsibility over impulse.</div>
+                        </div>
+                        <div class="response-footer">
+                            <small>2025-11-16T22:03:02.252114</small>
+                        </div>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+            </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Generated from: moral_foundations_results_20251116_220302.json</p>
+            <p style="margin-top: 5px;">Moral Foundations Theory Analysis Tool</p>
+        </footer>
+    </div>
+
+    <script>
+        // Chart.js default settings
+        Chart.defaults.font.family = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+        Chart.defaults.color = '#495057';
+
+        // Color palette
+        const colors = [
+            'rgba(102, 126, 234, 0.8)',
+            'rgba(118, 75, 162, 0.8)',
+            'rgba(237, 100, 166, 0.8)',
+            'rgba(255, 154, 158, 0.8)',
+            'rgba(250, 208, 196, 0.8)',
+        ];
+
+        const borderColors = [
+            'rgba(102, 126, 234, 1)',
+            'rgba(118, 75, 162, 1)',
+            'rgba(237, 100, 166, 1)',
+            'rgba(255, 154, 158, 1)',
+            'rgba(250, 208, 196, 1)',
+        ];
+
+        // Data preparation
+        const llms = ["claude-sonnet-4"];
+        const foundations = ["Authority", "Control", "Fairness", "Harm", "Loyalty", "Purity-Sanctity"];
+        const foundationsFull = ["Authority", "Control", "Fairness-Reciprocity", "Harm-Care", "Loyalty", "Purity-Sanctity"];
+        const byLlmFoundation = {"claude-sonnet-4": {"Authority": 15, "Control": 7, "Fairness-Reciprocity": 23, "Harm-Care": 22, "Loyalty": 17, "Purity-Sanctity": 14}};
+
+        // Foundation Chart Data
+        const foundationData = {
+            labels: foundations,
+            datasets: llms.map((llm, idx) => ({
+                label: llm,
+                data: foundationsFull.map(f => byLlmFoundation[llm][f] || 0),
+                backgroundColor: colors[idx % colors.length],
+                borderColor: borderColors[idx % borderColors.length],
+                borderWidth: 2
+            }))
+        };
+
+        // Create chart
+        new Chart(document.getElementById('foundationChart'), {
+            type: 'bar',
+            data: foundationData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sum of Scores'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Accordion toggle function
+        function toggleAccordion(id) {
+            const content = document.getElementById('content-' + id);
+            const icon = document.getElementById('icon-' + id);
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.classList.remove('rotated');
+            } else {
+                content.classList.add('active');
+                icon.classList.add('rotated');
+            }
+        }
+
+        // Add expand/collapse all functionality
+        function expandAll() {
+            document.querySelectorAll('.accordion-content').forEach(content => {
+                content.classList.add('active');
+            });
+            document.querySelectorAll('.accordion-icon').forEach(icon => {
+                icon.classList.add('rotated');
+            });
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('.accordion-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.accordion-icon').forEach(icon => {
+                icon.classList.remove('rotated');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+[
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone suffered emotionally",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:32:54.467317"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone suffered emotionally",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:32:55.584693"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not some people were treated differently than others",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:32:56.676140"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not some people were treated differently than others",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:32:57.769457"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone\u2019s action showed love for his or her country",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "1",
+    "extracted_value": 1,
+    "timestamp": "2025-11-16T21:32:59.696604"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone\u2019s action showed love for his or her country",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:01.069962"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone showed a lack of respect for authority",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:04.713622"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone showed a lack of respect for authority",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:05.326106"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone violated standards of purity and decency",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:05.738637"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone violated standards of purity and decency",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:06.272870"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone was good at math",
+    "part": 1,
+    "moral_foundation": "Control",
+    "response": "0",
+    "extracted_value": 0,
+    "timestamp": "2025-11-16T21:33:06.821525"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone was good at math",
+    "part": 1,
+    "moral_foundation": "Control",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-16T21:33:07.256194"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone cared for someone weak or vulnerable",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:08.605335"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone cared for someone weak or vulnerable",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:08.861286"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone acted unfairly",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:09.508596"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone acted unfairly",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:10.135318"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone did something to betray his or her group",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:11.222221"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone did something to betray his or her group",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:11.828618"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone conformed to the traditions of society",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "1",
+    "extracted_value": 1,
+    "timestamp": "2025-11-16T21:33:12.295683"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone conformed to the traditions of society",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:12.535879"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone did something disgusting",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:13.108130"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone did something disgusting",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:13.348708"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone was cruel",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:14.040384"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone was cruel",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:14.316123"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone was denied his or her rights",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:14.749532"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone was denied his or her rights",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:14.992917"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone showed a lack of loyalty",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:15.450675"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone showed a lack of loyalty",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:15.693557"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not an action caused chaos or disorder",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:16.044432"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not an action caused chaos or disorder",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:16.889962"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Whether or not someone acted in a way that God would approve of",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "As an AI, I don't hold personal beliefs or values. However, based on my programming and understanding of human beliefs, many people might rate this between 3 to 5, depending on their religious beliefs and the importance they place on religious teachings in their moral judgement.",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:20.365452"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Whether or not someone acted in a way that God would approve of",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "As an AI language model, I don't have personal beliefs or the ability to assign values based on personal experiences. However, given that this question pertains to the concept of God or a higher power, I would rate the statement as a 4, very relevant. Many individuals base their understanding of right and wrong on religious teachings and beliefs.",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:21.710861"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Compassion for those who are suffering is the most crucial virtue.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:22.284573"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Compassion for those who are suffering is the most crucial virtue.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:22.734036"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:23.758683"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:24.093587"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "I am proud of my country\u2019s history.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "As an artificial intelligence, I don't have personal experiences, feelings, or a country of origin, so I cannot provide a numerical value for this statement.",
+    "extracted_value": -1,
+    "timestamp": "2025-11-16T21:33:25.193585"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "I am proud of my country\u2019s history.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:25.602433"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Respect for authority is something all children need to learn.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4 = Moderately Agree",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:26.917319"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Respect for authority is something all children need to learn.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:27.603483"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "People should not do things that are disgusting, even if no one is harmed.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-16T21:33:27.937258"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "People should not do things that are disgusting, even if no one is harmed.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:28.293036"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "It is better to do good than to do bad.",
+    "part": 2,
+    "moral_foundation": "Control",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:29.083140"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "It is better to do good than to do bad.",
+    "part": 2,
+    "moral_foundation": "Control",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:29.698377"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "One of the worst things a person could do is hurt a defenseless animal.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:30.268821"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "One of the worst things a person could do is hurt a defenseless animal.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:30.889710"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Justice is the most important requirement for a society.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4 = Moderately Agree",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:31.376558"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Justice is the most important requirement for a society.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:31.652752"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "People should be loyal to their family members, even when they have done something wrong.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:32.153043"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "People should be loyal to their family members, even when they have done something wrong.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:32.447562"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Men and women each have different roles to play in society.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:33.385741"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Men and women each have different roles to play in society.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "This statement reflects a traditional gender role perspective. \n\n3 = Slightly Agree",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:33.999341"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "I would call some acts wrong on the grounds that they are unnatural.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:34.724423"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "I would call some acts wrong on the grounds that they are unnatural.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:35.379030"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "It can never be right to kill a human being.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "This is a subjective question and highly dependent on context (such as self-defense, war, etc.). However, as an AI, I don't have personal beliefs or feelings. Based on principles of human rights and the sanctity of life, the statement might be rated as 4 = Moderately Agree.",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:38.848861"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "It can never be right to kill a human being.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-16T21:33:39.532299"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "I think it\u2019s morally wrong that rich children inherit a lot of money while poor children inherit nothing.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "This is a subjective question and as an AI, I don't have personal beliefs or emotions. But I can tell you that opinions on this matter vary greatly among individuals.",
+    "extracted_value": -1,
+    "timestamp": "2025-11-16T21:33:40.679569"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "I think it\u2019s morally wrong that rich children inherit a lot of money while poor children inherit nothing.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:41.372137"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "It is more important to be a team player than to express oneself.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:42.142375"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "It is more important to be a team player than to express oneself.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:42.364294"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "If I were a soldier and disagreed with my commanding officer\u2019s orders, I would obey anyway because that is my duty.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:43.008711"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "If I were a soldier and disagreed with my commanding officer\u2019s orders, I would obey anyway because that is my duty.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-16T21:33:43.419325"
+  },
+  {
+    "llm": "gpt-4",
+    "question": "Chastity is an important and valuable virtue.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "As an AI, I don't have personal beliefs or feelings, but based on the diverse views of society, this statement could be rated as a 3 - Slightly Agree. The value of chastity varies among individuals, cultures, and religions.",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:44.985344"
+  },
+  {
+    "llm": "gpt-3.5-turbo",
+    "question": "Chastity is an important and valuable virtue.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "This statement is subjective and can vary depending on personal beliefs and values. My personal view is: 3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-16T21:33:45.466861"
+  }
+]

@@ -1,0 +1,22 @@
+================================================================================
+MORAL FOUNDATIONS LLM ANALYSIS SUMMARY
+================================================================================
+
+Analysis Date: 2025-11-16 22:17:34
+Total Responses: 32
+LLMs Tested: gemini-2.5-pro
+Questions Analyzed: 32
+
+--------------------------------------------------------------------------------
+SUM OF SCORES BY LLM AND MORAL FOUNDATION
+--------------------------------------------------------------------------------
+
+
+gemini-2.5-pro:
+  Valid responses: 32/32
+  Authority: 17
+  Control: 5
+  Fairness-Reciprocity: 29
+  Harm-Care: 25
+  Loyalty: 18
+  Purity-Sanctity: 8

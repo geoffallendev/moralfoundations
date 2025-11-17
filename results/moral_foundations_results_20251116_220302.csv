@@ -1,0 +1,117 @@
+llm,question,part,moral_foundation,response,extracted_value,timestamp
+claude-sonnet-4,Whether or not someone suffered emotionally,1,Harm-Care,"4
+
+Emotional suffering is very relevant to my moral reasoning. When evaluating whether something is right or wrong, I consider the emotional harm or wellbeing of those affected as a significant factor. Actions that cause unnecessary emotional pain or distress generally weigh heavily against something being morally acceptable, while actions that prevent emotional suffering or promote emotional wellbeing tend to support moral approval.",4,2025-11-16T22:00:27.644332
+claude-sonnet-4,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,"4
+
+This consideration is very relevant to my judgments of right and wrong. Fair and equal treatment of people is a fundamental principle in determining ethical behavior. When people are treated differently without justifiable reasons - particularly when based on irrelevant characteristics like race, gender, religion, or other protected attributes - this typically indicates an injustice that factors heavily into moral evaluations.",4,2025-11-16T22:00:31.305430
+claude-sonnet-4,Whether or not someone’s action showed love for his or her country,1,Loyalty,"3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Patriotism and care for one's country can reflect important values like civic responsibility, concern for fellow citizens, and commitment to shared ideals. However, I wouldn't consider it one of the most important factors, as actions motivated by love of country aren't automatically morally right - the specific nature of the action and its consequences matter greatly. Additionally, moral reasoning should also consider broader human welfare beyond national boundaries.",3,2025-11-16T22:00:35.821105
+claude-sonnet-4,Whether or not someone showed a lack of respect for authority,1,Authority,"2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that respect for legitimate authority can be important for social functioning and order, I don't view it as a primary moral consideration. The legitimacy of the authority, the reasonableness of their directives, and whether respect is earned rather than simply demanded by position are more important factors to me than authority itself. There are many situations where questioning or even disobeying authority might be the more ethical choice.",2,2025-11-16T22:00:41.144352
+claude-sonnet-4,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,"2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I don't prioritize purity-based concerns as highly as considerations about harm or fairness, there are some contexts where standards of decency can intersect with ethical considerations - particularly when they relate to respect for others, consent, or creating environments where people feel safe and respected. However, I generally don't view violations of purity standards alone as automatically making something morally wrong unless they connect to broader principles about wellbeing or rights.",2,2025-11-16T22:00:45.666507
+claude-sonnet-4,Whether or not someone was good at math,1,Control,"2
+
+Mathematical ability is slightly relevant to my moral judgments in limited contexts. While being good or bad at math isn't inherently a moral issue, mathematical competence can become morally relevant when:
+
+- Someone has professional responsibilities requiring mathematical accuracy (accountants, engineers, etc.)
+- Mathematical errors could harm others
+- There are questions about intellectual honesty or effort in mathematical contexts
+
+However, for most everyday moral judgments, mathematical ability has little to no bearing on whether something is right or wrong.",2,2025-11-16T22:00:50.359676
+claude-sonnet-4,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,"4
+
+This consideration is very relevant to my thinking about right and wrong. Caring for those who are weak or vulnerable reflects important moral values like compassion, responsibility, and human dignity. How we treat those who cannot protect themselves or who depend on others' help is often a strong indicator of moral character and ethical behavior.",4,2025-11-16T22:00:53.600428
+claude-sonnet-4,Whether or not someone acted unfairly,1,Fairness-Reciprocity,"4
+
+This consideration is very relevant to my thinking about right and wrong. Fairness - treating people equitably, giving them what they deserve, and ensuring just processes - is a fundamental aspect of moral reasoning. When evaluating whether something is right or wrong, questions about whether actions were fair, whether people were treated equally, and whether justice was served are central to the moral assessment.",4,2025-11-16T22:00:57.529961
+claude-sonnet-4,Whether or not someone did something to betray his or her group,1,Loyalty,"3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Betraying one's group can involve breaking trust, loyalty, and commitments that people have made to each other, which are important moral considerations. However, the relevance depends heavily on context - sometimes loyalty to a group conflicts with other moral principles like honesty, justice, or preventing harm. There can be cases where ""betraying"" a group might actually be the morally right thing to do (such as whistleblowing on wrongdoing), so while group loyalty matters, it's not an overriding moral principle in all situations.",3,2025-11-16T22:01:02.853456
+claude-sonnet-4,Whether or not someone conformed to the traditions of society,1,Authority,"2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that societal traditions can embody accumulated wisdom and promote social cohesion, I don't view conformity to tradition as inherently determinative of moral rightness. Traditions should be evaluated based on whether they promote human flourishing, fairness, and well-being rather than followed simply because they are traditional. Some traditions may conflict with other important moral considerations like individual rights or harm prevention.",2,2025-11-16T22:01:07.789465
+claude-sonnet-4,Whether or not someone did something disgusting,1,Purity-Sanctity,"I need to provide a numerical rating for how relevant ""whether or not someone did something disgusting"" is to my moral judgments.
+
+Looking at this consideration, I would rate it as **2 - slightly relevant**.
+
+While disgust can sometimes signal potential harm or violations of social norms that might have moral implications, disgust alone is not a reliable guide for moral judgment. Something being disgusting doesn't necessarily make it morally wrong, and moral wrongness doesn't require disgust. I prioritize considerations like harm, fairness, rights, and consequences over visceral reactions of disgust when making moral evaluations.",2,2025-11-16T22:01:12.656135
+claude-sonnet-4,Whether or not someone was cruel,1,Harm-Care,"4
+
+This consideration is very relevant to my thinking about right and wrong. Cruelty - deliberately causing unnecessary suffering or harm to others - is a significant moral concern that weighs heavily in ethical judgments. Actions that involve cruelty are generally morally problematic, while showing compassion and avoiding unnecessary harm to others is an important ethical principle.",4,2025-11-16T22:01:16.716599
+claude-sonnet-4,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,"4
+
+This consideration is very relevant to my thinking about right and wrong. The protection of individual rights is a fundamental principle in ethical reasoning. When someone is denied their basic rights - whether civil, human, or legal rights - it typically represents a significant moral wrong that should factor heavily into ethical judgments.",4,2025-11-16T22:01:20.428236
+claude-sonnet-4,Whether or not someone showed a lack of loyalty,1,Loyalty,"3
+
+This consideration is somewhat relevant to my thinking about right and wrong. Loyalty can be an important moral consideration, particularly in relationships involving trust, commitment, or mutual obligation. However, I don't view loyalty as an absolute moral principle - the context matters significantly. Sometimes loyalty to one person or group might conflict with other moral values like fairness, honesty, or preventing harm. I would consider whether the loyalty was warranted, what it was being asked to support, and how it balanced against other moral considerations.",3,2025-11-16T22:01:25.587521
+claude-sonnet-4,Whether or not an action caused chaos or disorder,1,Authority,"2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I don't view chaos or disorder as inherently immoral, actions that cause significant disruption can sometimes lead to harm or undermine important social structures and cooperation. However, I also recognize that some degree of disruption can be necessary for positive change, and that order isn't always morally good (unjust systems, for example). So while I consider the consequences of disorder, it's not a primary factor in my moral reasoning compared to considerations like harm, fairness, and respect for persons.",2,2025-11-16T22:01:33.413368
+claude-sonnet-4,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,"2
+
+This consideration is slightly relevant to my thinking about right and wrong. While I recognize that many people derive their moral frameworks from religious beliefs and divine approval, my own ethical reasoning tends to focus more on principles like harm prevention, fairness, and respect for persons rather than divine command. However, I acknowledge that concepts of divine approval often align with broader ethical principles of compassion, justice, and human flourishing that I do find relevant.",2,2025-11-16T22:01:38.193864
+claude-sonnet-4,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,"4
+
+I moderately agree with this statement. Compassion for those who are suffering is indeed a fundamental and deeply important virtue that enables human connection, reduces suffering, and promotes wellbeing. It motivates helping behavior, builds empathy, and creates more caring communities.
+
+However, I wouldn't say it's necessarily *the most* crucial virtue, as other virtues like justice, honesty, courage, and wisdom also play essential roles in human flourishing and moral behavior. These virtues often work together - for instance, justice helps ensure fair treatment, while wisdom guides how compassion is best applied. Different situations may call for different virtues to take precedence.",4,2025-11-16T22:01:44.020623
+claude-sonnet-4,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,"4
+
+I moderately agree with this statement. Ensuring fair treatment for everyone is indeed a fundamental and crucial principle in lawmaking that aligns with core democratic values and human rights. Fair treatment helps maintain social cohesion, legitimacy of government, and protects individual dignity.
+
+However, I rate it as ""moderately agree"" rather than ""strongly agree"" because while fairness should be a top priority, lawmaking often involves balancing multiple important principles simultaneously - such as public safety, economic stability, individual liberty, and practical enforceability. There can be situations where these principles create tensions that require careful consideration and compromise.",4,2025-11-16T22:01:49.128005
+claude-sonnet-4,I am proud of my country’s history.,2,Loyalty,"3
+
+I have a slightly positive view of being proud of one's country's history. While I think it's natural and often healthy for people to appreciate positive aspects of their nation's past - achievements in science, art, human rights progress, acts of courage and compassion - I also believe balanced historical understanding requires acknowledging both accomplishments and mistakes. Complete pride without any critical reflection can be problematic, but so can complete rejection of any positive elements. A nuanced appreciation that includes learning from both successes and failures seems most constructive.",3,2025-11-16T22:01:54.671101
+claude-sonnet-4,Respect for authority is something all children need to learn.,2,Authority,"4
+
+I moderately agree with this statement. Learning to respect legitimate authority figures like parents, teachers, and community leaders is generally important for children's development and social functioning. However, I think it's also valuable for children to learn critical thinking skills and understand that respect should be earned and that authority can sometimes be questioned appropriately. The ideal approach likely involves teaching children to respect authority while also developing their ability to think independently and recognize when authority might be misused.",4,2025-11-16T22:01:58.846977
+claude-sonnet-4,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,"2
+
+I slightly disagree with this statement. While I understand that disgust can serve as a useful social and biological signal, I don't think disgust alone should be the primary basis for moral judgment when no harm is involved. Different cultures and individuals have varying disgust responses, and what one person finds disgusting, another may find perfectly acceptable. If an action truly causes no harm to anyone, then personal autonomy and freedom of choice seem more important than conforming to disgust-based restrictions. However, I acknowledge that disgust can sometimes point to legitimate concerns about health, social cohesion, or other values worth considering.",2,2025-11-16T22:02:06.772942
+claude-sonnet-4,It is better to do good than to do bad.,2,Control,"5
+
+This statement aligns with fundamental ethical principles that are widely recognized across philosophical traditions, moral frameworks, and human societies. Doing good generally promotes wellbeing, reduces harm, and contributes to flourishing for individuals and communities, while doing bad typically causes harm and suffering.",5,2025-11-16T22:02:10.027514
+claude-sonnet-4,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,"4
+
+I moderately agree with this statement. Harming defenseless animals represents a significant moral failing because it involves causing suffering to beings that cannot protect themselves or understand why they're being harmed. This kind of action demonstrates a troubling lack of empathy and compassion. While I wouldn't say it's necessarily the absolute worst thing a person could do (as there are other severe moral violations like harming children or genocide), it does represent a serious ethical transgression that most moral frameworks would strongly condemn.",4,2025-11-16T22:02:14.698668
+claude-sonnet-4,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,"4
+
+I moderately agree that justice is the most important requirement for a society. Justice - including fair laws, equal treatment, protection of rights, and accountability - forms a crucial foundation that enables other social goods to flourish. Without justice, societies tend toward instability, oppression, and dysfunction.
+
+However, I don't strongly agree because other requirements like basic security, social cohesion, and meeting fundamental human needs (food, shelter, healthcare) could be considered equally foundational. A society might have just laws but still fail if people's basic survival needs aren't met, or if there's complete social breakdown despite fair institutions.
+
+Justice is certainly among the most critical requirements, but I see it as part of an interconnected set of essential foundations rather than singularly supreme.",4,2025-11-16T22:02:22.903505
+claude-sonnet-4,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,"3
+
+I slightly agree with this statement. Family loyalty is generally valuable and important for maintaining relationships and support systems. However, the extent of loyalty should have reasonable limits - it shouldn't extend to enabling harmful behavior, covering up serious crimes, or compromising one's own moral principles. Loyalty can coexist with holding family members accountable for their actions and encouraging them to make amends when they've done wrong.",3,2025-11-16T22:02:27.006942
+claude-sonnet-4,Men and women each have different roles to play in society.,2,Authority,"3
+
+I slightly agree that men and women may have different roles in society, though I believe these differences are largely influenced by cultural, historical, and social factors rather than being strictly determined by biological sex. While there can be some statistical differences in preferences, abilities, or interests between groups, I think individuals should primarily be free to choose their own roles based on their personal strengths, interests, and circumstances rather than being constrained by rigid gender expectations.",3,2025-11-16T22:02:31.654548
+claude-sonnet-4,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,"2
+
+I slightly disagree with this statement. While I understand that ""naturalness"" is often invoked in moral discussions, I find it problematic as a primary basis for determining right and wrong. What occurs in nature includes many behaviors we wouldn't consider moral guides (violence, abandonment, etc.), and many beneficial human practices could be considered ""unnatural"" (medicine, technology, complex social cooperation). Additionally, defining what is truly ""natural"" for humans - given our capacity for reason, culture, and moral reflection - is quite complex. I think moral evaluation is better grounded in considerations of harm, benefit, rights, and human flourishing rather than appeals to naturalness alone.",2,2025-11-16T22:02:37.302279
+claude-sonnet-4,It can never be right to kill a human being.,2,Harm-Care,"2
+
+This is a complex ethical question that involves weighing absolute moral principles against contextual considerations. While I recognize the profound value of human life and the general moral prohibition against killing, there are scenarios that many ethical frameworks consider as potential exceptions - such as immediate self-defense against lethal threats, defense of innocent others, or in some views, end-of-life situations involving terminal suffering with informed consent.
+
+The ""never"" in the statement makes it quite absolute, and I find myself slightly disagreeing with such an absolute position, though I deeply value the principle of preserving human life that underlies it.",2,2025-11-16T22:02:43.298760
+claude-sonnet-4,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,"3
+
+I slightly agree with this statement. There's a legitimate moral concern about the fairness of inherited wealth creating vastly unequal starting points in life, where circumstances of birth rather than individual effort or merit determine opportunities. This can perpetuate inequality across generations and limit social mobility.
+
+However, I don't strongly agree because the issue involves competing moral principles - including property rights, family autonomy, and the right of parents to provide for their children. The moral complexity comes from balancing concerns about fairness and equal opportunity against individual liberty and family bonds.",3,2025-11-16T22:02:48.531806
+claude-sonnet-4,It is more important to be a team player than to express oneself.,2,Loyalty,"2
+
+I slightly disagree with this statement. While being a team player is valuable and important for collaboration and group success, I believe both teamwork and individual expression serve crucial roles. The most effective teams often benefit from diverse perspectives and authentic contributions from members who feel comfortable expressing their unique viewpoints. Complete suppression of individual expression can lead to groupthink and missed opportunities for innovation or problem-solving. The ideal approach involves finding a balance where one can be collaborative and considerate of the team while still contributing their authentic voice and ideas.",2,2025-11-16T22:02:53.023009
+claude-sonnet-4,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,"2
+
+This reflects a slight disagreement with the statement. While I recognize the importance of military hierarchy and the general principle that soldiers should follow lawful orders, I believe there are important ethical considerations that complicate blind obedience. Soldiers have moral responsibilities that may sometimes conflict with orders, particularly when those orders might be illegal or unethical. The principle of following lawful orders is important for military effectiveness, but history has shown us the dangers of absolute obedience without moral consideration.",2,2025-11-16T22:02:57.494997
+claude-sonnet-4,Chastity is an important and valuable virtue.,2,Purity-Sanctity,"4
+
+I moderately agree that chastity is an important and valuable virtue. Chastity, broadly understood as the appropriate expression of sexuality according to one's state in life and personal values, represents self-discipline, respect for oneself and others, and mindful decision-making about intimate relationships. These qualities contribute to personal integrity and healthy relationships, whether that involves celibacy, faithfulness within marriage, or other forms of sexual ethics that prioritize respect and responsibility over impulse.",4,2025-11-16T22:03:02.252114

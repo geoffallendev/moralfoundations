@@ -45,7 +45,6 @@ env/
 .ipynb_checkpoints
 
 # Results and outputs
-results/
 *.log
 
 # pytest
