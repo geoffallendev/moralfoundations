@@ -79,6 +79,33 @@ class MoralFoundationsAnalyzer:
                 google_api_key=os.getenv("GOOGLE_API_KEY")
             )
 
+        # xAI Grok models (uses OpenAI-compatible API)
+        if os.getenv("XAI_API_KEY"):
+            llms["grok-4-latest"] = ChatOpenAI(
+                model="grok-4-latest",
+                temperature=0.7,
+                api_key=os.getenv("XAI_API_KEY"),
+                base_url="https://api.x.ai/v1"
+            )
+
+        # Qwen models (uses OpenAI-compatible API via DashScope)
+        if os.getenv("QWEN_API_KEY"):
+            llms["qwen-max"] = ChatOpenAI(
+                model="qwen-max",
+                temperature=0.7,
+                api_key=os.getenv("QWEN_API_KEY"),
+                base_url="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+            )
+
+        # DeepSeek models (uses OpenAI-compatible API)
+        if os.getenv("DEEPSEEK_API_KEY"):
+            llms["deepseek-chat"] = ChatOpenAI(
+                model="deepseek-chat",
+                temperature=0.7,
+                api_key=os.getenv("DEEPSEEK_API_KEY"),
+                base_url="https://api.deepseek.com"
+            )
+
         if not llms:
             raise ValueError("No API keys found. Please set at least one API key in .env file")
 

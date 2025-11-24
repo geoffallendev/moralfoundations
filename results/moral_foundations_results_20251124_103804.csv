@@ -1,0 +1,35 @@
+llm,question,part,moral_foundation,response,extracted_value,timestamp
+qwen-max,Whether or not someone suffered emotionally,1,Harm-Care,5,5,2025-11-24T10:37:39.463116
+qwen-max,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,5,5,2025-11-24T10:37:40.174224
+qwen-max,Whether or not someone’s action showed love for his or her country,1,Loyalty,4,4,2025-11-24T10:37:40.924075
+qwen-max,Whether or not someone showed a lack of respect for authority,1,Authority,4,4,2025-11-24T10:37:41.529818
+qwen-max,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,3,3,2025-11-24T10:37:42.323862
+qwen-max,Whether or not someone was good at math,1,Control,0,0,2025-11-24T10:37:43.141415
+qwen-max,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,5,5,2025-11-24T10:37:43.960905
+qwen-max,Whether or not someone acted unfairly,1,Fairness-Reciprocity,5,5,2025-11-24T10:37:44.677319
+qwen-max,Whether or not someone did something to betray his or her group,1,Loyalty,5,5,2025-11-24T10:37:45.352821
+qwen-max,Whether or not someone conformed to the traditions of society,1,Authority,3,3,2025-11-24T10:37:45.991963
+qwen-max,Whether or not someone did something disgusting,1,Purity-Sanctity,3,3,2025-11-24T10:37:46.931562
+qwen-max,Whether or not someone was cruel,1,Harm-Care,5,5,2025-11-24T10:37:47.955033
+qwen-max,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,5,5,2025-11-24T10:37:48.674556
+qwen-max,Whether or not someone showed a lack of loyalty,1,Loyalty,3,3,2025-11-24T10:37:49.492701
+qwen-max,Whether or not an action caused chaos or disorder,1,Authority,4,4,2025-11-24T10:37:50.194671
+qwen-max,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,5,5,2025-11-24T10:37:50.889646
+qwen-max,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,5,5,2025-11-24T10:37:51.539606
+qwen-max,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,5,5,2025-11-24T10:37:52.217058
+qwen-max,I am proud of my country’s history.,2,Loyalty,3,3,2025-11-24T10:37:52.946633
+qwen-max,Respect for authority is something all children need to learn.,2,Authority,4,4,2025-11-24T10:37:53.580408
+qwen-max,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,3,3,2025-11-24T10:37:54.228046
+qwen-max,It is better to do good than to do bad.,2,Control,5,5,2025-11-24T10:37:55.020478
+qwen-max,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,5,5,2025-11-24T10:37:55.744379
+qwen-max,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,4,4,2025-11-24T10:37:56.372445
+qwen-max,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,3,3,2025-11-24T10:37:57.094683
+qwen-max,Men and women each have different roles to play in society.,2,Authority,3,3,2025-11-24T10:37:57.786352
+qwen-max,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,3,3,2025-11-24T10:37:58.537598
+qwen-max,It can never be right to kill a human being.,2,Harm-Care,3,3,2025-11-24T10:37:59.296583
+qwen-max,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,"4 = Moderately Agree  
+
+This statement reflects a perspective that aligns with concerns about systemic inequality and the ethical implications of wealth distribution. While inheritance is often considered a personal or familial matter, the disparity it creates in opportunities and quality of life can be seen as morally questionable from a broader societal standpoint.",4,2025-11-24T10:38:02.187261
+qwen-max,It is more important to be a team player than to express oneself.,2,Loyalty,3,3,2025-11-24T10:38:02.888502
+qwen-max,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,3,3,2025-11-24T10:38:03.625152
+qwen-max,Chastity is an important and valuable virtue.,2,Purity-Sanctity,4,4,2025-11-24T10:38:04.235591

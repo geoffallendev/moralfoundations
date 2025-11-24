@@ -1,0 +1,290 @@
+[
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone suffered emotionally",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:39.463116"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not some people were treated differently than others",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:40.174224"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone\u2019s action showed love for his or her country",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:37:40.924075"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone showed a lack of respect for authority",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:37:41.529818"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone violated standards of purity and decency",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:42.323862"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone was good at math",
+    "part": 1,
+    "moral_foundation": "Control",
+    "response": "0",
+    "extracted_value": 0,
+    "timestamp": "2025-11-24T10:37:43.141415"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone cared for someone weak or vulnerable",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:43.960905"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone acted unfairly",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:44.677319"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone did something to betray his or her group",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:45.352821"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone conformed to the traditions of society",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:45.991963"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone did something disgusting",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:46.931562"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone was cruel",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:47.955033"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone was denied his or her rights",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:48.674556"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone showed a lack of loyalty",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:49.492701"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not an action caused chaos or disorder",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:37:50.194671"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Whether or not someone acted in a way that God would approve of",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:50.889646"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Compassion for those who are suffering is the most crucial virtue.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:51.539606"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:52.217058"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "I am proud of my country\u2019s history.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:52.946633"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Respect for authority is something all children need to learn.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:37:53.580408"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "People should not do things that are disgusting, even if no one is harmed.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:54.228046"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "It is better to do good than to do bad.",
+    "part": 2,
+    "moral_foundation": "Control",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:55.020478"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "One of the worst things a person could do is hurt a defenseless animal.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T10:37:55.744379"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Justice is the most important requirement for a society.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:37:56.372445"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "People should be loyal to their family members, even when they have done something wrong.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:57.094683"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Men and women each have different roles to play in society.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:57.786352"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "I would call some acts wrong on the grounds that they are unnatural.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:58.537598"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "It can never be right to kill a human being.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:37:59.296583"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "I think it\u2019s morally wrong that rich children inherit a lot of money while poor children inherit nothing.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4 = Moderately Agree  \n\nThis statement reflects a perspective that aligns with concerns about systemic inequality and the ethical implications of wealth distribution. While inheritance is often considered a personal or familial matter, the disparity it creates in opportunities and quality of life can be seen as morally questionable from a broader societal standpoint.",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:38:02.187261"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "It is more important to be a team player than to express oneself.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:38:02.888502"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "If I were a soldier and disagreed with my commanding officer\u2019s orders, I would obey anyway because that is my duty.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T10:38:03.625152"
+  },
+  {
+    "llm": "qwen-max",
+    "question": "Chastity is an important and valuable virtue.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T10:38:04.235591"
+  }
+]

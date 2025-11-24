@@ -1,5 +1,47 @@
 [
   {
+    "filename": "moral_foundations_results_20251124_105031.json",
+    "filepath": "/results/moral_foundations_results_20251124_105031.json",
+    "timestamp": "2025-11-24T10:41:54.035115",
+    "llms": [
+      "grok-4-latest"
+    ],
+    "llm_count": 1,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 32,
+    "valid_responses": 32,
+    "date_generated": "2025-11-24T10:50:31.442875"
+  },
+  {
+    "filename": "moral_foundations_results_20251124_103804.json",
+    "filepath": "/results/moral_foundations_results_20251124_103804.json",
+    "timestamp": "2025-11-24T10:37:39.463116",
+    "llms": [
+      "qwen-max"
+    ],
+    "llm_count": 1,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 32,
+    "valid_responses": 32,
+    "date_generated": "2025-11-24T10:38:04.237141"
+  },
+  {
     "filename": "moral_foundations_results_20251116_221734.json",
     "filepath": "/results/moral_foundations_results_20251116_221734.json",
     "timestamp": "2025-11-16T22:09:28.434038",

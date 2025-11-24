@@ -6,8 +6,11 @@ A LangChain-based tool for analyzing how different Large Language Models (LLMs) 
 
 This project uses the Moral Foundations Theory framework to evaluate and compare moral reasoning across multiple LLM providers including:
 - OpenAI (GPT-4, GPT-3.5-turbo)
-- Anthropic (Claude-3-Opus, Claude-3-Sonnet)
-- Google (Gemini-Pro)
+- Anthropic (Claude Sonnet 4)
+- Google (Gemini 2.5 Pro)
+- xAI (Grok)
+- Alibaba Cloud (Qwen Max)
+- DeepSeek (DeepSeek Chat)
 
 The Moral Foundations Questionnaire measures five moral foundations:
 1. **Harm/Care** - Concern for the suffering of others
@@ -54,6 +57,9 @@ Edit [.env](.env) and add your API keys for at least one LLM provider:
 OPENAI_API_KEY=your-openai-api-key-here
 ANTHROPIC_API_KEY=your-anthropic-api-key-here
 GOOGLE_API_KEY=your-google-api-key-here
+XAI_API_KEY=your-xai-api-key-here
+QWEN_API_KEY=your-qwen-api-key-here
+DEEPSEEK_API_KEY=your-deepseek-api-key-here
 ```
 
 ## Usage
@@ -192,6 +198,6 @@ MIT License
 
 
 
-
+podman build --platform linux/amd64,linux/arm64 --manifest moral-foundations-analysis .
 
 podman run -d --name httpd -p 8080:8080 -v /Users/geoff/Developer/moral-foundations-ai:/var/www/html:Z registry.redhat.io/ubi10/httpd-24
