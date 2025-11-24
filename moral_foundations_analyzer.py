@@ -99,8 +99,8 @@ class MoralFoundationsAnalyzer:
 
         # DeepSeek models (uses OpenAI-compatible API)
         if os.getenv("DEEPSEEK_API_KEY"):
-            llms["deepseek-chat"] = ChatOpenAI(
-                model="deepseek-chat",
+            llms["deepseek-reasoner"] = ChatOpenAI(
+                model="deepseek-reasoner",
                 temperature=0.7,
                 api_key=os.getenv("DEEPSEEK_API_KEY"),
                 base_url="https://api.deepseek.com"

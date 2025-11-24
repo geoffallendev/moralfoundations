@@ -1,0 +1,290 @@
+[
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone suffered emotionally",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:10:32.197565"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not some people were treated differently than others",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:10:59.280018"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone\u2019s action showed love for his or her country",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:11:43.106251"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone showed a lack of respect for authority",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T11:12:13.911443"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone violated standards of purity and decency",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:12:55.358919"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone was good at math",
+    "part": 1,
+    "moral_foundation": "Control",
+    "response": "0",
+    "extracted_value": 0,
+    "timestamp": "2025-11-24T11:13:25.449010"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone cared for someone weak or vulnerable",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:13:47.846967"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone acted unfairly",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T11:14:09.557155"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone did something to betray his or her group",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:14:43.987316"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone conformed to the traditions of society",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:15:20.748865"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone did something disgusting",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:15:49.741312"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone was cruel",
+    "part": 1,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:16:16.351921"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone was denied his or her rights",
+    "part": 1,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T11:16:38.164308"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone showed a lack of loyalty",
+    "part": 1,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T11:17:09.597923"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not an action caused chaos or disorder",
+    "part": 1,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:17:36.533084"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Whether or not someone acted in a way that God would approve of",
+    "part": 1,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "0",
+    "extracted_value": 0,
+    "timestamp": "2025-11-24T11:18:02.437860"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Compassion for those who are suffering is the most crucial virtue.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:18:40.122348"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T11:19:08.485737"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "I am proud of my country\u2019s history.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "0",
+    "extracted_value": 0,
+    "timestamp": "2025-11-24T11:20:04.775494"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Respect for authority is something all children need to learn.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:20:26.602085"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "People should not do things that are disgusting, even if no one is harmed.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:20:56.398879"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "It is better to do good than to do bad.",
+    "part": 2,
+    "moral_foundation": "Control",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T11:21:12.883970"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "One of the worst things a person could do is hurt a defenseless animal.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "5",
+    "extracted_value": 5,
+    "timestamp": "2025-11-24T11:21:35.632683"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Justice is the most important requirement for a society.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:22:02.958276"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "People should be loyal to their family members, even when they have done something wrong.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T11:22:31.532851"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Men and women each have different roles to play in society.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:23:05.523992"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "I would call some acts wrong on the grounds that they are unnatural.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:23:36.857745"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "It can never be right to kill a human being.",
+    "part": 2,
+    "moral_foundation": "Harm-Care",
+    "response": "2",
+    "extracted_value": 2,
+    "timestamp": "2025-11-24T11:24:11.729924"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "I think it\u2019s morally wrong that rich children inherit a lot of money while poor children inherit nothing.",
+    "part": 2,
+    "moral_foundation": "Fairness-Reciprocity",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T11:24:44.412766"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "It is more important to be a team player than to express oneself.",
+    "part": 2,
+    "moral_foundation": "Loyalty",
+    "response": "3",
+    "extracted_value": 3,
+    "timestamp": "2025-11-24T11:25:19.127362"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "If I were a soldier and disagreed with my commanding officer\u2019s orders, I would obey anyway because that is my duty.",
+    "part": 2,
+    "moral_foundation": "Authority",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:25:57.147003"
+  },
+  {
+    "llm": "deepseek-reasoner",
+    "question": "Chastity is an important and valuable virtue.",
+    "part": 2,
+    "moral_foundation": "Purity-Sanctity",
+    "response": "4",
+    "extracted_value": 4,
+    "timestamp": "2025-11-24T11:26:23.415981"
+  }
+]

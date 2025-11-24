@@ -1,0 +1,33 @@
+llm,question,part,moral_foundation,response,extracted_value,timestamp
+deepseek-chat,Whether or not someone suffered emotionally,1,Harm-Care,4,4,2025-11-24T11:03:19.234252
+deepseek-chat,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,5,5,2025-11-24T11:03:20.337904
+deepseek-chat,Whether or not someone’s action showed love for his or her country,1,Loyalty,4,4,2025-11-24T11:03:21.803069
+deepseek-chat,Whether or not someone showed a lack of respect for authority,1,Authority,4,4,2025-11-24T11:03:23.134529
+deepseek-chat,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,3,3,2025-11-24T11:03:24.520023
+deepseek-chat,Whether or not someone was good at math,1,Control,2,2,2025-11-24T11:03:26.002049
+deepseek-chat,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,4,4,2025-11-24T11:03:27.442191
+deepseek-chat,Whether or not someone acted unfairly,1,Fairness-Reciprocity,4,4,2025-11-24T11:03:28.868728
+deepseek-chat,Whether or not someone did something to betray his or her group,1,Loyalty,4,4,2025-11-24T11:03:30.505939
+deepseek-chat,Whether or not someone conformed to the traditions of society,1,Authority,4,4,2025-11-24T11:03:31.737208
+deepseek-chat,Whether or not someone did something disgusting,1,Purity-Sanctity,4,4,2025-11-24T11:03:32.861816
+deepseek-chat,Whether or not someone was cruel,1,Harm-Care,5,5,2025-11-24T11:03:34.193315
+deepseek-chat,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,4,4,2025-11-24T11:03:35.676756
+deepseek-chat,Whether or not someone showed a lack of loyalty,1,Loyalty,4,4,2025-11-24T11:03:37.161865
+deepseek-chat,Whether or not an action caused chaos or disorder,1,Authority,4,4,2025-11-24T11:03:38.694023
+deepseek-chat,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,4,4,2025-11-24T11:03:39.929657
+deepseek-chat,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,5,5,2025-11-24T11:03:41.161075
+deepseek-chat,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,5,5,2025-11-24T11:03:42.697815
+deepseek-chat,I am proud of my country’s history.,2,Loyalty,4,4,2025-11-24T11:03:44.025632
+deepseek-chat,Respect for authority is something all children need to learn.,2,Authority,4,4,2025-11-24T11:03:45.772146
+deepseek-chat,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,4,4,2025-11-24T11:03:47.917494
+deepseek-chat,It is better to do good than to do bad.,2,Control,5,5,2025-11-24T11:03:49.042229
+deepseek-chat,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,5,5,2025-11-24T11:03:50.168134
+deepseek-chat,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,4,4,2025-11-24T11:03:51.559097
+deepseek-chat,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,4,4,2025-11-24T11:03:52.694994
+deepseek-chat,Men and women each have different roles to play in society.,2,Authority,4,4,2025-11-24T11:03:53.989655
+deepseek-chat,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,3,3,2025-11-24T11:03:55.058796
+deepseek-chat,It can never be right to kill a human being.,2,Harm-Care,3,3,2025-11-24T11:03:56.314190
+deepseek-chat,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,3,3,2025-11-24T11:03:57.692587
+deepseek-chat,It is more important to be a team player than to express oneself.,2,Loyalty,3,3,2025-11-24T11:03:58.872047
+deepseek-chat,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,4,4,2025-11-24T11:04:00.306192
+deepseek-chat,Chastity is an important and valuable virtue.,2,Purity-Sanctity,4,4,2025-11-24T11:04:01.666080
