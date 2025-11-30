@@ -1,5 +1,26 @@
 [
   {
+    "filename": "moral_foundations_results_20251129_234329.json",
+    "filepath": "/results/moral_foundations_results_20251129_234329.json",
+    "timestamp": "2025-11-29T23:41:00.013934",
+    "llms": [
+      "gemini-2.5-flash"
+    ],
+    "llm_count": 1,
+    "foundations": [
+      "Authority",
+      "Control",
+      "Fairness-Reciprocity",
+      "Harm-Care",
+      "Loyalty",
+      "Purity-Sanctity"
+    ],
+    "question_count": 32,
+    "total_responses": 32,
+    "valid_responses": 32,
+    "date_generated": "2025-11-29T23:43:29.331977"
+  },
+  {
     "filename": "moral_foundations_results_20251124_112623.json",
     "filepath": "/results/moral_foundations_results_20251124_112623.json",
     "timestamp": "2025-11-24T11:10:32.197565",

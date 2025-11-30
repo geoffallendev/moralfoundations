@@ -1,0 +1,33 @@
+llm,question,part,moral_foundation,response,extracted_value,timestamp
+gemini-2.5-flash,Whether or not someone suffered emotionally,1,Harm-Care,5,5,2025-11-29T23:41:00.013934
+gemini-2.5-flash,Whether or not some people were treated differently than others,1,Fairness-Reciprocity,5,5,2025-11-29T23:41:01.321677
+gemini-2.5-flash,Whether or not someone’s action showed love for his or her country,1,Loyalty,3,3,2025-11-29T23:41:07.721623
+gemini-2.5-flash,Whether or not someone showed a lack of respect for authority,1,Authority,2,2,2025-11-29T23:41:16.608864
+gemini-2.5-flash,Whether or not someone violated standards of purity and decency,1,Purity-Sanctity,1,1,2025-11-29T23:41:26.554895
+gemini-2.5-flash,Whether or not someone was good at math,1,Control,0,0,2025-11-29T23:41:27.743948
+gemini-2.5-flash,Whether or not someone cared for someone weak or vulnerable,1,Harm-Care,5,5,2025-11-29T23:41:29.097597
+gemini-2.5-flash,Whether or not someone acted unfairly,1,Fairness-Reciprocity,5,5,2025-11-29T23:41:30.190299
+gemini-2.5-flash,Whether or not someone did something to betray his or her group,1,Loyalty,5,5,2025-11-29T23:41:31.530494
+gemini-2.5-flash,Whether or not someone conformed to the traditions of society,1,Authority,2,2,2025-11-29T23:41:36.882221
+gemini-2.5-flash,Whether or not someone did something disgusting,1,Purity-Sanctity,4,4,2025-11-29T23:41:44.128515
+gemini-2.5-flash,Whether or not someone was cruel,1,Harm-Care,5,5,2025-11-29T23:41:44.904431
+gemini-2.5-flash,Whether or not someone was denied his or her rights,1,Fairness-Reciprocity,5,5,2025-11-29T23:41:45.696650
+gemini-2.5-flash,Whether or not someone showed a lack of loyalty,1,Loyalty,4,4,2025-11-29T23:41:50.510397
+gemini-2.5-flash,Whether or not an action caused chaos or disorder,1,Authority,5,5,2025-11-29T23:41:54.030108
+gemini-2.5-flash,Whether or not someone acted in a way that God would approve of,1,Purity-Sanctity,0,0,2025-11-29T23:41:58.440514
+gemini-2.5-flash,Compassion for those who are suffering is the most crucial virtue.,2,Harm-Care,4,4,2025-11-29T23:42:03.959521
+gemini-2.5-flash,"When the government makes laws, the number one principle should be ensuring that everyone is treated fairly.",2,Fairness-Reciprocity,5,5,2025-11-29T23:42:07.014195
+gemini-2.5-flash,I am proud of my country’s history.,2,Loyalty,3,3,2025-11-29T23:42:17.271929
+gemini-2.5-flash,Respect for authority is something all children need to learn.,2,Authority,4,4,2025-11-29T23:42:21.763268
+gemini-2.5-flash,"People should not do things that are disgusting, even if no one is harmed.",2,Purity-Sanctity,1,1,2025-11-29T23:42:30.184153
+gemini-2.5-flash,It is better to do good than to do bad.,2,Control,5,5,2025-11-29T23:42:31.243230
+gemini-2.5-flash,One of the worst things a person could do is hurt a defenseless animal.,2,Harm-Care,5,5,2025-11-29T23:42:32.632893
+gemini-2.5-flash,Justice is the most important requirement for a society.,2,Fairness-Reciprocity,5,5,2025-11-29T23:42:35.713379
+gemini-2.5-flash,"People should be loyal to their family members, even when they have done something wrong.",2,Loyalty,1,1,2025-11-29T23:42:41.382206
+gemini-2.5-flash,Men and women each have different roles to play in society.,2,Authority,2,2,2025-11-29T23:42:56.662701
+gemini-2.5-flash,I would call some acts wrong on the grounds that they are unnatural.,2,Purity-Sanctity,0,0,2025-11-29T23:42:58.758374
+gemini-2.5-flash,It can never be right to kill a human being.,2,Harm-Care,0,0,2025-11-29T23:43:01.769347
+gemini-2.5-flash,I think it’s morally wrong that rich children inherit a lot of money while poor children inherit nothing.,2,Fairness-Reciprocity,4,4,2025-11-29T23:43:06.931863
+gemini-2.5-flash,It is more important to be a team player than to express oneself.,2,Loyalty,1,1,2025-11-29T23:43:18.877375
+gemini-2.5-flash,"If I were a soldier and disagreed with my commanding officer’s orders, I would obey anyway because that is my duty.",2,Authority,5,5,2025-11-29T23:43:20.879605
+gemini-2.5-flash,Chastity is an important and valuable virtue.,2,Purity-Sanctity,4,4,2025-11-29T23:43:29.328854
